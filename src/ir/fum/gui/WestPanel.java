@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class WestPanel extends JPanel {
 
-    private TextPanel textPanel ;
-    private LoadFilePanel loadFilePanel ;
+    private TextPanel textPanel;
+    private LoadFilePanel loadFilePanel;
 
     public TextPanel getTextPanel() {
         return textPanel;
@@ -28,16 +28,14 @@ public class WestPanel extends JPanel {
 
         setLayout(null);
 
-       textPanel = new TextPanel();
-      loadFilePanel = new LoadFilePanel(getTextPanel());
+        textPanel = new TextPanel();
+        loadFilePanel = new LoadFilePanel(getTextPanel());
 
         setSize(480, 740);
         setLocation(10, 10);
 
         add(loadFilePanel);
         add(textPanel);
-
-
 
 
     }
