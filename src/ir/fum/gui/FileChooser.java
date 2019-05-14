@@ -1,5 +1,7 @@
 package ir.fum.gui;
 
+import ir.fum.logic.ChosenFile;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.io.*;
@@ -9,6 +11,7 @@ public class FileChooser extends JFileChooser {
 
     private TextPanel textPanel;
     private JTextField fileName;
+    private ChosenFile chosenFile;
 
     public TextPanel getTextPanel() {
         return textPanel;
@@ -29,32 +32,17 @@ public class FileChooser extends JFileChooser {
     public FileChooser(TextPanel textPanel, JTextField fileName) {
         setTextPanel(textPanel);
         setFileName(fileName);
-        String lineText = "";
-        String fileText = "";
+
         FileSystemView.getFileSystemView().getHomeDirectory();
         int selectedMode = showOpenDialog(this);
 
-        if (selectedMode == this.APPROVE_OPTION) {
-            try {
+        if (selectedMode == APPROVE_OPTION) {
+
                 File selectedFile = this.getSelectedFile();
                 String selectedFilePath = selectedFile.getPath();
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(selectedFilePath));
-                    while ((lineText = bufferedReader.readLine()) != null) {
-//                    fileText.concat(lineText.concat("\n"));
+                 chosenFile = new ChosenFile(selectedFilePath,this);
 
-                        fileText += lineText + "\n";
-                    }
-                    getTextPanel().getTextContent().setText(fileText);
-                    getFileName().setText(selectedFilePath);
-                    bufferedReader.close();
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }catch (Exception m){
 
             }
 
@@ -64,4 +52,4 @@ public class FileChooser extends JFileChooser {
     }
 
 
-}
+

@@ -10,6 +10,24 @@ public class LoadFile extends JButton implements ActionListener {
     private TextPanel textPanel;
     private JTextField fileName;
 
+    public LoadFile(TextPanel textPanel, JTextField fileName) {
+        setText("Load Your File");
+        setTextPanel(textPanel);
+        setFileName(fileName);
+
+        addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                fileChooser = new FileChooser(getTextPanel(), getFileName());
+
+
+            }
+        });
+
+
+    }
+
     public FileChooser getFileChooser() {
         return fileChooser;
     }
@@ -33,31 +51,6 @@ public class LoadFile extends JButton implements ActionListener {
     public void setFileName(JTextField fileName) {
         this.fileName = fileName;
     }
-
-    public LoadFile(TextPanel textPanel, JTextField fileName) {
-        setText("Load Your File");
-        setTextPanel(textPanel);
-        setFileName(fileName);
-
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-//                JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-////                fileChooser.setDialogTitle();
-//                fileChooser.showOpenDialog(null);
-                fileChooser = new FileChooser(getTextPanel(),getFileName());
-
-
-//                System.out.println("Clicked");
-//                textPanel.getTextContent().setText("Hello There");
-//                fileName.setText("It is ");
-            }
-        });
-
-
-    }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
