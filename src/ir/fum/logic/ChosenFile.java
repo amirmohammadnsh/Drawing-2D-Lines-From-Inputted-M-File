@@ -3,7 +3,6 @@ package ir.fum.logic;
 import ir.fum.gui.FileChooser;
 import ir.fum.logic.Exceptions.FileTypeException;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,6 +11,7 @@ import java.io.IOException;
 public class ChosenFile {
     private String filePath;
     private FileChooser fileChooser;
+    private String error;
 
     public ChosenFile(String pathname, FileChooser fileChooser) {
         String lineText = "";
@@ -28,16 +28,19 @@ public class ChosenFile {
 
 //                fileText += lineText + "\n";
 
-                stringBuffer.append("  "+lineText + "\n");
+                stringBuffer.append("  " + lineText + "\n");
             }
             getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
             getFileChooser().getFileName().setText(filePath);
             bufferedReader.close();
 
+            getFileChooser().setApprovedSwitch(true);
+
 
         } catch (FileTypeException e) {
-            String error = e.getError();
-            JOptionPane.showMessageDialog(null, error + " is not a .M file\n" + "Please Choose Another File");
+            error = e.getError();
+            getFileChooser().setApprovedSwitch(false);
+            getFileChooser().setError(error);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -64,5 +67,13 @@ public class ChosenFile {
             throw new FileTypeException(filePath);
         }
 
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 }
