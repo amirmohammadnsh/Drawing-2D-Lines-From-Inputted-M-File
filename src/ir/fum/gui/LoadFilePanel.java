@@ -8,13 +8,14 @@ public class LoadFilePanel extends JPanel {
 
     private TextPanel textPanel;
     private JTextField fileName;
+    private CompilePanel compilePanel;
 
-    public LoadFilePanel(TextPanel textPanel) {
-
+    public LoadFilePanel(TextPanel textPanel, CompilePanel compilePanel) {
+        setCompilePanel(compilePanel);
         setTextPanel(textPanel);
         fileName = new JTextField(30);
         setFileName(fileName);
-        LoadFile loadFile = new LoadFile(getTextPanel(), fileName);
+        LoadFile loadFile = new LoadFile(getTextPanel(), fileName, getCompilePanel());
 
         loadFile.setBorder(new LineBorder(Color.GRAY, 3));
 
@@ -33,6 +34,14 @@ public class LoadFilePanel extends JPanel {
         add(fileName, gridBagConstraints);
         setVisible(true);
 
+    }
+
+    public CompilePanel getCompilePanel() {
+        return compilePanel;
+    }
+
+    public void setCompilePanel(CompilePanel compilePanel) {
+        this.compilePanel = compilePanel;
     }
 
     public JTextField getFileName() {

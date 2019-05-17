@@ -31,6 +31,7 @@ public class ChosenFile {
                 stringBuffer.append("  " + lineText + "\n");
             }
             getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
+//            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
             getFileChooser().getFileName().setText(filePath);
             bufferedReader.close();
 

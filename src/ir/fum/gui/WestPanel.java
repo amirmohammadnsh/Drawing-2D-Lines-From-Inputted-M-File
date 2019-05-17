@@ -6,19 +6,31 @@ public class WestPanel extends JPanel {
 
     private TextPanel textPanel;
     private LoadFilePanel loadFilePanel;
+    private CompilePanel compilePanel;
+
+    public CompilePanel getCompilePanel() {
+        return compilePanel;
+    }
+
+    public void setCompilePanel(CompilePanel compilePanel) {
+        this.compilePanel = compilePanel;
+    }
 
     public WestPanel() {
 
         setLayout(null);
 
         textPanel = new TextPanel();
-        loadFilePanel = new LoadFilePanel(getTextPanel());
+        compilePanel = new CompilePanel(getTextPanel());
+        loadFilePanel = new LoadFilePanel(getTextPanel(),getCompilePanel());
+
 
         setSize(480, 740);
         setLocation(10, 10);
 
         add(loadFilePanel);
         add(textPanel);
+        add(compilePanel);
 
 
     }
