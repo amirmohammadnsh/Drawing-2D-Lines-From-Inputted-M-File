@@ -7,6 +7,28 @@ public class WestPanel extends JPanel {
     private TextPanel textPanel;
     private LoadFilePanel loadFilePanel;
     private CompilePanel compilePanel;
+    private EditAndSavePanel editAndSavePanel;
+
+    public WestPanel() {
+
+        setLayout(null);
+
+        textPanel = new TextPanel();
+        compilePanel = new CompilePanel(getTextPanel());
+        editAndSavePanel = new EditAndSavePanel(getTextPanel());
+        loadFilePanel = new LoadFilePanel(getTextPanel(), getCompilePanel(),getEditAndSavePanel());
+        editAndSavePanel.setLoadFilePanel(getLoadFilePanel());
+
+        setSize(480, 740);
+        setLocation(10, 10);
+
+        add(loadFilePanel);
+        add(textPanel);
+//        add(compilePanel);
+        add(editAndSavePanel);
+
+
+    }
 
     public CompilePanel getCompilePanel() {
         return compilePanel;
@@ -16,23 +38,12 @@ public class WestPanel extends JPanel {
         this.compilePanel = compilePanel;
     }
 
-    public WestPanel() {
+    public EditAndSavePanel getEditAndSavePanel() {
+        return editAndSavePanel;
+    }
 
-        setLayout(null);
-
-        textPanel = new TextPanel();
-        compilePanel = new CompilePanel(getTextPanel());
-        loadFilePanel = new LoadFilePanel(getTextPanel(),getCompilePanel());
-
-
-        setSize(480, 740);
-        setLocation(10, 10);
-
-        add(loadFilePanel);
-        add(textPanel);
-        add(compilePanel);
-
-
+    public void setEditAndSavePanel(EditAndSavePanel editAndSavePanel) {
+        this.editAndSavePanel = editAndSavePanel;
     }
 
     public TextPanel getTextPanel() {

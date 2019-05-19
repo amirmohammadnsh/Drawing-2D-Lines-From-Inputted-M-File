@@ -15,7 +15,7 @@ public class CompileButton extends JButton implements ActionListener {
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                System.out.println(getTextPanel().getTextContent().getText());
+                System.out.println(getTextPanel().getTextContent().getText());
             }
         });
 

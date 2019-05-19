@@ -4,30 +4,40 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoadFile extends JButton implements ActionListener {
+public class LoadFileButton extends JButton implements ActionListener {
 
     private FileChooser fileChooser;
     private TextPanel textPanel;
     private JTextField fileName;
     private CompilePanel compilePanel;
+    private EditAndSavePanel editAndSavePanel;
 
-    public LoadFile(TextPanel textPanel, JTextField fileName,CompilePanel compilePanel) {
+    public LoadFileButton(TextPanel textPanel, JTextField fileName, CompilePanel compilePanel, EditAndSavePanel editAndSavePanel) {
         setText("Load Your File");
         setTextPanel(textPanel);
         setFileName(fileName);
         setCompilePanel(compilePanel);
+        setEditAndSavePanel(editAndSavePanel);
 
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                fileChooser = new FileChooser(getTextPanel(), getFileName(),getCompilePanel());
+                fileChooser = new FileChooser(getTextPanel(), getFileName(), getCompilePanel(),getEditAndSavePanel());
 
 
             }
         });
 
 
+    }
+
+    public EditAndSavePanel getEditAndSavePanel() {
+        return editAndSavePanel;
+    }
+
+    public void setEditAndSavePanel(EditAndSavePanel editAndSavePanel) {
+        this.editAndSavePanel = editAndSavePanel;
     }
 
     public FileChooser getFileChooser() {

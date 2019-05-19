@@ -10,7 +10,7 @@ public class TextPanel extends JPanel {
 
         Font font = new Font("Courier", Font.BOLD, 15);
 
-        setSize(450, 400);
+        setSize(450, 300);
         setLocation(10, 50);
         textContent = new JTextArea(40, 40);
         textContent.setFont(font);
@@ -18,7 +18,7 @@ public class TextPanel extends JPanel {
         textContent.setBackground(Color.GRAY);
 
         JScrollPane jScrollPane = new JScrollPane(textContent);
-        jScrollPane.setPreferredSize(new Dimension(450, 390));
+        jScrollPane.setPreferredSize(new Dimension(450, 290));
         jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(jScrollPane);
 

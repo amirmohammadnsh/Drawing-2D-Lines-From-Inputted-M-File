@@ -3,24 +3,29 @@ package ir.fum.logic;
 import ir.fum.gui.FileChooser;
 import ir.fum.logic.Exceptions.FileTypeException;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class ChosenFile {
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
     private String filePath;
     private FileChooser fileChooser;
     private String error;
 
-    public ChosenFile(String pathname, FileChooser fileChooser) {
+    public ChosenFile(String pathName, FileChooser fileChooser) {
         String lineText = "";
         String fileText = "";
         setFileChooser(fileChooser);
-
+        getFileChooser().getEditAndSavePanel().setChosenFile(this);
 
         try {
-            setMFile(pathname);
+            setMFile(pathName);
             StringBuffer stringBuffer = new StringBuffer();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
             while ((lineText = bufferedReader.readLine()) != null) {
@@ -28,7 +33,7 @@ public class ChosenFile {
 
 //                fileText += lineText + "\n";
 
-                stringBuffer.append("  " + lineText + "\n");
+                stringBuffer.append(lineText +"\n");
             }
             getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
 //            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
@@ -47,6 +52,24 @@ public class ChosenFile {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+
+    }
+
+
+    public void saveFile(){
+        PrintWriter printWriter = null;
+        try{
+            printWriter = new PrintWriter(new BufferedWriter(new FileWriter(getFilePath())));
+            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
+            printWriter.println(getFileChooser().getTextPanel().getTextContent().getText());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(printWriter != null){
+                printWriter.close();
+            }
         }
 
 

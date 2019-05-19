@@ -7,17 +7,19 @@ import java.awt.*;
 public class LoadFilePanel extends JPanel {
 
     private TextPanel textPanel;
-    private JTextField fileName;
+    private JTextField filePath;
     private CompilePanel compilePanel;
+    private EditAndSavePanel editAndSavePanel;
 
-    public LoadFilePanel(TextPanel textPanel, CompilePanel compilePanel) {
+    public LoadFilePanel(TextPanel textPanel, CompilePanel compilePanel, EditAndSavePanel editAndSavePanel) {
         setCompilePanel(compilePanel);
         setTextPanel(textPanel);
-        fileName = new JTextField(30);
-        setFileName(fileName);
-        LoadFile loadFile = new LoadFile(getTextPanel(), fileName, getCompilePanel());
+        setEditAndSavePanel(editAndSavePanel);
+        filePath = new JTextField(30);
+        setFilePath(filePath);
+        LoadFileButton loadFileButton = new LoadFileButton(getTextPanel(), filePath, getCompilePanel(),getEditAndSavePanel());
 
-        loadFile.setBorder(new LineBorder(Color.GRAY, 3));
+        loadFileButton.setBorder(new LineBorder(Color.GRAY, 3));
 
 
         setSize(450, 30);
@@ -25,15 +27,23 @@ public class LoadFilePanel extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
 
-        add(loadFile, gridBagConstraints);
+        add(loadFileButton, gridBagConstraints);
 
 
-        fileName.setBorder(new LineBorder(Color.GRAY, 3));
+        filePath.setBorder(new LineBorder(Color.GRAY, 3));
 
         gridBagConstraints.weightx = 0.5;
-        add(fileName, gridBagConstraints);
+        add(filePath, gridBagConstraints);
         setVisible(true);
 
+    }
+
+    public EditAndSavePanel getEditAndSavePanel() {
+        return editAndSavePanel;
+    }
+
+    public void setEditAndSavePanel(EditAndSavePanel editAndSavePanel) {
+        this.editAndSavePanel = editAndSavePanel;
     }
 
     public CompilePanel getCompilePanel() {
@@ -44,12 +54,12 @@ public class LoadFilePanel extends JPanel {
         this.compilePanel = compilePanel;
     }
 
-    public JTextField getFileName() {
-        return fileName;
+    public JTextField getFilePath() {
+        return filePath;
     }
 
-    public void setFileName(JTextField fileName) {
-        this.fileName = fileName;
+    public void setFilePath(JTextField fileName) {
+        this.filePath = fileName;
     }
 
     public TextPanel getTextPanel() {
