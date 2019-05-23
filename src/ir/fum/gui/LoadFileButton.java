@@ -11,8 +11,10 @@ public class LoadFileButton extends JButton implements ActionListener {
     private JTextField fileName;
     private CompilePanel compilePanel;
     private EditAndSavePanel editAndSavePanel;
+//    private boolean approvedSwitch;
 
     public LoadFileButton(TextPanel textPanel, JTextField fileName, CompilePanel compilePanel, EditAndSavePanel editAndSavePanel) {
+//        setApprovedSwitch(approvedSwitch);
         setText("Load Your File");
         setTextPanel(textPanel);
         setFileName(fileName);
@@ -23,7 +25,7 @@ public class LoadFileButton extends JButton implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                fileChooser = new FileChooser(getTextPanel(), getFileName(), getCompilePanel(),getEditAndSavePanel());
+                fileChooser = new FileChooser(getTextPanel(), getFileName(), getCompilePanel(), getEditAndSavePanel());
 
 
             }
@@ -31,6 +33,14 @@ public class LoadFileButton extends JButton implements ActionListener {
 
 
     }
+
+//    public boolean isApprovedSwitch() {
+//        return approvedSwitch;
+//    }
+//
+//    public void setApprovedSwitch(boolean approvedSwitch) {
+//        this.approvedSwitch = approvedSwitch;
+//    }
 
     public EditAndSavePanel getEditAndSavePanel() {
         return editAndSavePanel;

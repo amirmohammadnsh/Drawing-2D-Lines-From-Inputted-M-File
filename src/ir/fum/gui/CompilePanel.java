@@ -9,20 +9,21 @@ public class CompilePanel extends JPanel {
     private JTextArea consoleTextArea;
     private CompileButton compileButton;
     private String command;
-    private TextPanel textPanel;
 
-    public CompilePanel(TextPanel textPanel) {
-        setTextPanel(textPanel);
+    private LoadFilePanel loadFilePanel;
+
+    public CompilePanel() {
+
         setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         setSize(450, 200);
-        setLocation(10, 450);
-//        setBorder(new LineBorder(Color.GRAY, 3));
-        compileButton = new CompileButton(getTextPanel());
+        setLocation(10, 390);
+//        setBorder(new LineBorder(PenColor.GRAY, 3));
+        compileButton = new CompileButton();
         compileButton.setEnabled(false);
 
 //        correctMistakesButton = new JButton("Correct");
-//        compileButton.setBorder(new LineBorder(Color.GRAY,1));
+//        compileButton.setBorder(new LineBorder(PenColor.GRAY,1));
         consoleTextArea = new JTextArea(10, 43);
         consoleTextArea.setBorder(new LineBorder(Color.GRAY, 2));
         consoleTextArea.setEnabled(false);
@@ -30,7 +31,7 @@ public class CompilePanel extends JPanel {
 //        jScrollPane.setPreferredSize(new Dimension(300, 190));
 //        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 //        add(jScrollPane);
-//        setBackground(Color.PINK);
+//        setBackground(PenColor.PINK);
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
         add(compileButton, gridBagConstraints);
@@ -44,6 +45,14 @@ public class CompilePanel extends JPanel {
         setVisible(true);
 
 
+    }
+
+    public LoadFilePanel getLoadFilePanel() {
+        return loadFilePanel;
+    }
+
+    public void setLoadFilePanel(LoadFilePanel loadFilePanel) {
+        this.loadFilePanel = loadFilePanel;
     }
 
     public CompileButton getCompileButton() {
@@ -63,11 +72,11 @@ public class CompilePanel extends JPanel {
         this.command = command;
     }
 
-    public TextPanel getTextPanel() {
-        return textPanel;
-    }
-
-    public void setTextPanel(TextPanel textPanel) {
-        this.textPanel = textPanel;
-    }
+//    public TextPanel getTextPanel() {
+//        return textPanel;
+//    }
+//
+//    public void setTextPanel(TextPanel textPanel) {
+//        this.textPanel = textPanel;
+//    }
 }

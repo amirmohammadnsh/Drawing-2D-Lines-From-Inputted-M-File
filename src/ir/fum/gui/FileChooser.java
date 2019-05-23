@@ -16,8 +16,6 @@ public class FileChooser extends JFileChooser {
     private CompilePanel compilePanel;
     private String error;
     private EditAndSavePanel editAndSavePanel;
-
-
     public FileChooser(TextPanel textPanel, JTextField fileName, CompilePanel compilePanel, EditAndSavePanel editAndSavePanel) {
         setTextPanel(textPanel);
         setFileName(fileName);
@@ -27,6 +25,14 @@ public class FileChooser extends JFileChooser {
         FileSystemView.getFileSystemView().getHomeDirectory();
         showOpenDialog(this);
 
+    }
+
+    public ChosenFile getChosenFile() {
+        return chosenFile;
+    }
+
+    public void setChosenFile(ChosenFile chosenFile) {
+        this.chosenFile = chosenFile;
     }
 
     public EditAndSavePanel getEditAndSavePanel() {

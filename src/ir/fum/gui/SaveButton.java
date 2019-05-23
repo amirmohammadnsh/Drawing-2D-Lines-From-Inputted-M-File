@@ -17,15 +17,12 @@ public class SaveButton extends JButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             setEnabled(false);
-            getEditAndSavePanel().getEditButton().setEnabled(false);
+            getEditAndSavePanel().getEditButton().setEnabled(true);
             getTextPanel().getTextContent().setEnabled(false);
-            System.out.println(getEditAndSavePanel().getLoadFilePanel().getFilePath().getText());
+//            System.out.println(getEditAndSavePanel().getLoadFilePanel().getFilePath().getText());
             getEditAndSavePanel().getChosenFile().saveFile();
-
-
         }
     });
-
     }
 
     public TextPanel getTextPanel() {

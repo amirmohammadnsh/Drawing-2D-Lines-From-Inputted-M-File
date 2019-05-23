@@ -10,6 +10,7 @@ public class LoadFilePanel extends JPanel {
     private JTextField filePath;
     private CompilePanel compilePanel;
     private EditAndSavePanel editAndSavePanel;
+    private LoadFileButton loadFileButton;
 
     public LoadFilePanel(TextPanel textPanel, CompilePanel compilePanel, EditAndSavePanel editAndSavePanel) {
         setCompilePanel(compilePanel);
@@ -17,7 +18,7 @@ public class LoadFilePanel extends JPanel {
         setEditAndSavePanel(editAndSavePanel);
         filePath = new JTextField(30);
         setFilePath(filePath);
-        LoadFileButton loadFileButton = new LoadFileButton(getTextPanel(), filePath, getCompilePanel(),getEditAndSavePanel());
+        loadFileButton = new LoadFileButton(getTextPanel(), filePath, getCompilePanel(), getEditAndSavePanel());
 
         loadFileButton.setBorder(new LineBorder(Color.GRAY, 3));
 
@@ -36,6 +37,14 @@ public class LoadFilePanel extends JPanel {
         add(filePath, gridBagConstraints);
         setVisible(true);
 
+    }
+
+    public LoadFileButton getLoadFileButton() {
+        return loadFileButton;
+    }
+
+    public void setLoadFileButton(LoadFileButton loadFileButton) {
+        this.loadFileButton = loadFileButton;
     }
 
     public EditAndSavePanel getEditAndSavePanel() {

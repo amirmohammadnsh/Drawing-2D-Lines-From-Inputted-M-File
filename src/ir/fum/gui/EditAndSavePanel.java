@@ -33,7 +33,7 @@ public class EditAndSavePanel extends JPanel {
 
         setSize(450, 35);
         setLocation(10, 350);
-//        setBackground(Color.PINK);
+//        setBackground(PenColor.PINK);
         add(editButton);
         add(saveButton);
         setVisible(true);

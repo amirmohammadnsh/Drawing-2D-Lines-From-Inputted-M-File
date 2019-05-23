@@ -6,21 +6,15 @@ import ir.fum.logic.Exceptions.FileTypeException;
 import java.io.*;
 
 public class ChosenFile {
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
     private String filePath;
     private FileChooser fileChooser;
     private String error;
-
+    private int numberOfLines;
+    private int numberOfEmptyLines;
     public ChosenFile(String pathName, FileChooser fileChooser) {
         String lineText = "";
         String fileText = "";
+
         setFileChooser(fileChooser);
         getFileChooser().getEditAndSavePanel().setChosenFile(this);
 
@@ -28,12 +22,13 @@ public class ChosenFile {
             setMFile(pathName);
             StringBuffer stringBuffer = new StringBuffer();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+
             while ((lineText = bufferedReader.readLine()) != null) {
-
-
+                if (!lineText.trim().isEmpty()) {
 //                fileText += lineText + "\n";
-
-                stringBuffer.append(lineText +"\n");
+                    stringBuffer.append(lineText + "\n");
+                    numberOfLines++;
+                }
             }
             getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
 //            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
@@ -57,17 +52,40 @@ public class ChosenFile {
 
     }
 
+    public int getNumberOfEmptyLines() {
+        return numberOfEmptyLines;
+    }
 
-    public void saveFile(){
+    public void setNumberOfEmptyLines(int numberOfEmptyLines) {
+        this.numberOfEmptyLines = numberOfEmptyLines;
+    }
+
+    public int getNumberOfLines() {
+        return numberOfLines;
+    }
+
+    public void setNumberOfLines(int numberOfLines) {
+        this.numberOfLines = numberOfLines;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public void saveFile() {
         PrintWriter printWriter = null;
-        try{
+        try {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter(getFilePath())));
-            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
+//            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
             printWriter.println(getFileChooser().getTextPanel().getTextContent().getText());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(printWriter != null){
+            if (printWriter != null) {
                 printWriter.close();
             }
         }

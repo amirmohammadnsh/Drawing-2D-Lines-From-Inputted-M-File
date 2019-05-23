@@ -14,18 +14,21 @@ public class WestPanel extends JPanel {
         setLayout(null);
 
         textPanel = new TextPanel();
-        compilePanel = new CompilePanel(getTextPanel());
+        compilePanel = new CompilePanel();
         editAndSavePanel = new EditAndSavePanel(getTextPanel());
-        loadFilePanel = new LoadFilePanel(getTextPanel(), getCompilePanel(),getEditAndSavePanel());
+        loadFilePanel = new LoadFilePanel(getTextPanel(), getCompilePanel(), getEditAndSavePanel());
         editAndSavePanel.setLoadFilePanel(getLoadFilePanel());
+        compilePanel.setLoadFilePanel(getLoadFilePanel());
+        compilePanel.getCompileButton().setLoadFilePanel(getLoadFilePanel());
 
         setSize(480, 740);
         setLocation(10, 10);
 
         add(loadFilePanel);
         add(textPanel);
-//        add(compilePanel);
+
         add(editAndSavePanel);
+        add(compilePanel);
 
 
     }
