@@ -2,7 +2,7 @@ package ir.fum.logic.Statements;
 
 public class For extends Statements implements ArgumentsOfStatements {
 
-    private final int forArguments = 2;
+    private static final int forArguments = 2;
     private String rawNumberOfNextStatements;
     private String rawNumberOfRepetition;
     private int numberOfNextStatements;

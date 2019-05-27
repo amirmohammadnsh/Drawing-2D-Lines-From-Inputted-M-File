@@ -26,5 +26,5 @@ public class UnidentifiedStatementException extends Exception {
     public void setWrongStatement(String wrongStatement) {
         this.wrongStatement = wrongStatement;
     }
-
+    
 }

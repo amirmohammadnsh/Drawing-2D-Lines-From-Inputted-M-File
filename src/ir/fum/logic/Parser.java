@@ -2,6 +2,7 @@ package ir.fum.logic;
 
 import ir.fum.logic.Statements.*;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,10 +14,12 @@ public class Parser {
     private ChosenFile chosenFile;
     private Statements[] statements;
     private boolean closedParenthese = true;
+    private JTextArea consoleTextArea;
+    private BufferedReader bufferedReader;
 
-
-    public Parser(ChosenFile chosenFile) {
+    public Parser(ChosenFile chosenFile, JTextArea consoleTextArea) {
         setChosenFile(chosenFile);
+        setConsoleTextArea(consoleTextArea);
         statements = new Statements[getChosenFile().getNumberOfLines()];
 
         String lineText = "";
@@ -25,30 +28,55 @@ public class Parser {
 //        System.out.println(getChosenFile().getFilePath());
         try {
 
-            StringBuffer stringBuffer = new StringBuffer();
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(getChosenFile().getFilePath()));
-            while ((lineText = bufferedReader.readLine()) != null) {
-                if (!lineText.trim().isEmpty()) {
 
-                    analyzeStatements(lineText, lineNumber, emptyLineNumber);
+            try {
+
+//            StringBuffer stringBuffer = new StringBuffer();
+                bufferedReader = new BufferedReader(new FileReader(getChosenFile().getFilePath()));
+                while ((lineText = bufferedReader.readLine()) != null) {
+                    if (!lineText.trim().isEmpty()) {
+
+                        analyzeStatements(lineText, lineNumber, emptyLineNumber);
 //                fileText += lineText + "\n";
 
 //                stringBuffer.append(lineText + "\n");
-                } else {
-                    emptyLineNumber++;
+                    } else {
+                        emptyLineNumber++;
+                    }
+                    lineNumber++;
                 }
-                lineNumber++;
+
+
+
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                bufferedReader.close();
             }
-
-            bufferedReader.close();
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
+//        Compiler compiler = new Compiler(getStatements(), getConsoleTextArea());
+        new Compiler(getStatements(), getConsoleTextArea());
 
+
+    }
+
+    public Statements[] getStatements() {
+        return statements;
+    }
+
+    public void setStatements(Statements[] statements) {
+        this.statements = statements;
+    }
+
+    public JTextArea getConsoleTextArea() {
+        return consoleTextArea;
+    }
+
+    public void setConsoleTextArea(JTextArea consoleTextArea) {
+        this.consoleTextArea = consoleTextArea;
     }
 
     public ChosenFile getChosenFile() {
@@ -68,10 +96,10 @@ public class Parser {
 
 
             if (lineStatement.equals("UP")) {
-                statements[lineNumber - emptyLineNumber - 1] = new Up(lineNumber);
+                statements[lineNumber - emptyLineNumber - 1] = new Up(lineStatement, lineNumber);
 
             } else if (lineStatement.equals("DOWN")) {
-                statements[lineNumber - emptyLineNumber - 1] = new Down(lineNumber);
+                statements[lineNumber - emptyLineNumber - 1] = new Down(lineStatement, lineNumber);
 
             } else {
 //                    throw new UnidentifiedStatementException(lineNumber, lineStatement);
@@ -96,34 +124,34 @@ public class Parser {
                 case "MOVE":
 
 
-                    statements[lineNumber - emptyLineNumber - 1] = new Move(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new Move(arguments, lineNumber, closedParenthese, lineStatement);
 //                        if(arguments.length!=moveArguements){
 //                            throw new NotEnoughArguementsException();
 //                        }
 
                     break;
                 case "COLOR":
-                    statements[lineNumber - emptyLineNumber - 1] = new PenColor(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new PenColor(arguments, lineNumber, closedParenthese, lineStatement);
 
                     break;
                 case "SIZE":
-                    statements[lineNumber - emptyLineNumber - 1] = new Size(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new Size(arguments, lineNumber, closedParenthese, lineStatement);
 
                     break;
                 case "STYLE":
-                    statements[lineNumber - emptyLineNumber - 1] = new Style(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new Style(arguments, lineNumber, closedParenthese, lineStatement);
 
                     break;
                 case "FOR":
-                    statements[lineNumber - emptyLineNumber - 1] = new For(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new For(arguments, lineNumber, closedParenthese, lineStatement);
 
                     break;
                 case "SET":
-                    statements[lineNumber - emptyLineNumber - 1] = new Set(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new Set(arguments, lineNumber, closedParenthese, lineStatement);
 
                     break;
                 case "INC":
-                    statements[lineNumber - emptyLineNumber - 1] = new Inc(arguments, lineNumber, closedParenthese,lineStatement);
+                    statements[lineNumber - emptyLineNumber - 1] = new Inc(arguments, lineNumber, closedParenthese, lineStatement);
 
                     break;
                 default:
@@ -132,7 +160,7 @@ public class Parser {
 
             }
         }
-//        System.out.println(statements[lineNumber]);
+
     }
 
 }

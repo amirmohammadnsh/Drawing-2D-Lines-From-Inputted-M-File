@@ -8,16 +8,18 @@ public class WestPanel extends JPanel {
     private LoadFilePanel loadFilePanel;
     private CompilePanel compilePanel;
     private EditAndSavePanel editAndSavePanel;
-
+    private MainFrame mainFrame ;
     public WestPanel() {
 
         setLayout(null);
 
         textPanel = new TextPanel();
+
         compilePanel = new CompilePanel();
         editAndSavePanel = new EditAndSavePanel(getTextPanel());
         loadFilePanel = new LoadFilePanel(getTextPanel(), getCompilePanel(), getEditAndSavePanel());
         editAndSavePanel.setLoadFilePanel(getLoadFilePanel());
+
         compilePanel.setLoadFilePanel(getLoadFilePanel());
         compilePanel.getCompileButton().setLoadFilePanel(getLoadFilePanel());
 

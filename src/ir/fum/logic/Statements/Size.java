@@ -2,7 +2,7 @@ package ir.fum.logic.Statements;
 
 public class Size extends Statements implements ArgumentsOfStatements {
 
-    private final int penSizeArguements = 1;
+    private static final int penSizeArguements = 1;
     private String rawPenSize;
     private int penSize;
 

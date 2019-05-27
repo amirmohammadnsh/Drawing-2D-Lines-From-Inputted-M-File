@@ -2,11 +2,11 @@ package ir.fum.logic.Statements;
 
 public class Inc extends Statements implements ArgumentsOfStatements {
 
-    private final int incArguments = 2;
+    private static final int incArguments = 2;
     private String rawNameOfVariable;
     private String rawValue;
-    private String NameOfVariable;
-    private int Value;
+    private String nameOfVariable;
+    private int value;
 
     public Inc(String[] arguments, int lineNumber, boolean closedParenthese,String lineText) {
         setLineNumber(lineNumber);
@@ -31,19 +31,19 @@ public class Inc extends Statements implements ArgumentsOfStatements {
     }
 
     public String  getNameOfVariable() {
-        return NameOfVariable;
+        return nameOfVariable;
     }
 
     public void setNameOfVariable(String nameOfVariable) {
-        NameOfVariable = nameOfVariable;
+        this.nameOfVariable = nameOfVariable;
     }
 
     public int getValue() {
-        return Value;
+        return value;
     }
 
     public void setValue(int value) {
-        Value = value;
+        this.value = value;
     }
 
     @Override

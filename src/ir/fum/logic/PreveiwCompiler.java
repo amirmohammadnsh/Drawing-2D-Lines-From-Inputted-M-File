@@ -37,7 +37,7 @@ public class PreveiwCompiler {
         System.out.println(getChosenFile().getFilePath());
         try {
 
-            StringBuffer stringBuffer = new StringBuffer();
+//            StringBuffer stringBuffer = new StringBuffer();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(getChosenFile().getFilePath()));
             while ((lineText = bufferedReader.readLine()) != null) {
                 if (!lineText.trim().isEmpty()) {
@@ -80,10 +80,10 @@ public class PreveiwCompiler {
 
 
                 if (lineStatement.equals("UP")) {
-                    statements[lineNumber - emptyLineNumber - 1] = new Up(lineNumber);
+//                    statements[lineNumber - emptyLineNumber - 1] = new Up(lineNumber);
 
                 } else if (lineStatement.equals("DOWN")) {
-                    statements[lineNumber - emptyLineNumber - 1] = new Down(lineNumber);
+//                    statements[lineNumber - emptyLineNumber - 1] = new Down(lineNumber);
 
                 } else {
                     throw new UnidentifiedStatementException(lineNumber, lineStatement);

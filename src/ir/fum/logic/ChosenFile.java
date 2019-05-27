@@ -11,44 +11,48 @@ public class ChosenFile {
     private String error;
     private int numberOfLines;
     private int numberOfEmptyLines;
+    private BufferedReader bufferedReader ;
+
     public ChosenFile(String pathName, FileChooser fileChooser) {
         String lineText = "";
         String fileText = "";
-
+//        BufferedReader bufferedReader;
         setFileChooser(fileChooser);
         getFileChooser().getEditAndSavePanel().setChosenFile(this);
+try {
+    try {
+        setMFile(pathName);
+        StringBuffer stringBuffer = new StringBuffer();
+        bufferedReader = new BufferedReader(new FileReader(filePath));
 
-        try {
-            setMFile(pathName);
-            StringBuffer stringBuffer = new StringBuffer();
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
-
-            while ((lineText = bufferedReader.readLine()) != null) {
-                if (!lineText.trim().isEmpty()) {
+        while ((lineText = bufferedReader.readLine()) != null) {
+            if (!lineText.trim().isEmpty()) {
 //                fileText += lineText + "\n";
-                    stringBuffer.append(lineText + "\n");
-                    numberOfLines++;
-                }
+                stringBuffer.append(lineText + "\n");
+                numberOfLines++;
             }
-            getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
-//            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
-            getFileChooser().getFileName().setText(filePath);
-            bufferedReader.close();
-
-            getFileChooser().setApprovedSwitch(true);
-
-
-        } catch (FileTypeException e) {
-            error = e.getError();
-            getFileChooser().setApprovedSwitch(false);
-            getFileChooser().setError(error);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
+//            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
+        getFileChooser().getFileName().setText(filePath);
 
+
+        getFileChooser().setApprovedSwitch(true);
+
+
+    } catch (FileTypeException e) {
+        error = e.getError();
+        getFileChooser().setApprovedSwitch(false);
+        getFileChooser().setError(error);
+
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }  finally {
+        bufferedReader.close();
+    }
+}catch (IOException e) {
+    e.printStackTrace();
+}
 
     }
 

@@ -1,7 +1,7 @@
 package ir.fum.logic.Statements;
 
 public class PenColor extends Statements implements ArgumentsOfStatements {
-    private final int penColorArguements = 3;
+    private static final int penColorArguements = 3;
     private String rawR;
     private String rawG;
     private String rawB;
@@ -36,6 +36,7 @@ public class PenColor extends Statements implements ArgumentsOfStatements {
     public String getRawB() {
         return rawB;
     }
+
 
     public void setRawB(String rawB) {
         this.rawB = rawB;

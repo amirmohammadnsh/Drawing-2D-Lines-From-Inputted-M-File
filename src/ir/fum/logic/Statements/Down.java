@@ -1,8 +1,9 @@
 package ir.fum.logic.Statements;
 
 public class Down extends Statements {
-    public Down(int lineNumber) {
+    public Down(String lineStatement, int lineNumber) {
         setLineNumber(lineNumber);
+        setLineText(lineStatement);
 
 
     }

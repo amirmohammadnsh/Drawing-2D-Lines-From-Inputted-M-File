@@ -19,7 +19,7 @@ public class CompilePanel extends JPanel {
         setSize(450, 200);
         setLocation(10, 390);
 //        setBorder(new LineBorder(PenColor.GRAY, 3));
-        compileButton = new CompileButton();
+        compileButton = new CompileButton(consoleTextArea);
         compileButton.setEnabled(false);
 
 //        correctMistakesButton = new JButton("Correct");

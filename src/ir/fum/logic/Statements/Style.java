@@ -1,7 +1,7 @@
 package ir.fum.logic.Statements;
 
 public class Style extends Statements implements ArgumentsOfStatements {
-    private final int styleArguments = 1;
+    private static final int styleArguments = 1;
     private String rawStyleType;
     private StyleType styleType;
 

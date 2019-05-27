@@ -1,7 +1,7 @@
 package ir.fum.logic.Statements;
 
 public class Move extends Statements implements ArgumentsOfStatements {
-    private final int moveArguments = 2;
+    private static  final int moveArguments = 2;
     private String rawX;
     private String rawY;
     private int x;

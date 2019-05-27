@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
 
+
     public MainFrame() {
         setSize(1440, 800);
         setResizable(false);
