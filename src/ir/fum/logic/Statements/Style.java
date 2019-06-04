@@ -1,14 +1,17 @@
 package ir.fum.logic.Statements;
 
 public class Style extends Statements implements ArgumentsOfStatements {
-    private static final int styleArguments = 1;
+    //    private static final int styleArguments = 1;
+    private int styleArguments = Argument.STYLE.getArgumentCount(Argument.STYLE);
     private String rawStyleType;
+
     private StyleType styleType;
 
-    public Style(String[] arguments, int lineNumber, boolean closedParenthese,String lineText) {
+    public Style(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
         setLineNumber(lineNumber);
-        setArgumentsOfStatements(arguments,closedParenthese);
+        setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
+        setClosedParanthese(closedParenthese);
     }
 
     public String getRawStyleType() {
@@ -28,8 +31,8 @@ public class Style extends Statements implements ArgumentsOfStatements {
     }
 
     @Override
-    public void setArgumentsOfStatements(String[] argumentsOfStatements,boolean closedParenthese) {
-        if (argumentsOfStatements.length == styleArguments &&  closedParenthese) {
+    public void setArgumentsOfStatements(String[] argumentsOfStatements, boolean closedParenthese) {
+        if (argumentsOfStatements.length == styleArguments && closedParenthese) {
             setRawStyleType(argumentsOfStatements[0]);
         } else {
 

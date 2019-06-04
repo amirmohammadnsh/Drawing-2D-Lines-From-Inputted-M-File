@@ -2,15 +2,18 @@ package ir.fum.logic.Statements;
 
 public class Size extends Statements implements ArgumentsOfStatements {
 
-    private static final int penSizeArguements = 1;
+    //    private static final int penSizeArguements = 1;
+    private int penSizeArguements = Argument.SIZE.getArgumentCount(Argument.SIZE);
+
     private String rawPenSize;
     private int penSize;
 
-    public Size(String[] arguments, int lineNumber, boolean closedParenthese,String lineText) {
+    public Size(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
 
         setLineNumber(lineNumber);
-        setArgumentsOfStatements(arguments,closedParenthese);
+        setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
+        setClosedParanthese(closedParenthese);
     }
 
     public String getRawPenSize() {

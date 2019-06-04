@@ -11,7 +11,7 @@ public class ChosenFile {
     private String error;
     private int numberOfLines;
     private int numberOfEmptyLines;
-    private BufferedReader bufferedReader ;
+    private BufferedReader bufferedReader;
 
     public ChosenFile(String pathName, FileChooser fileChooser) {
         String lineText = "";
@@ -19,40 +19,40 @@ public class ChosenFile {
 //        BufferedReader bufferedReader;
         setFileChooser(fileChooser);
         getFileChooser().getEditAndSavePanel().setChosenFile(this);
-try {
-    try {
-        setMFile(pathName);
-        StringBuffer stringBuffer = new StringBuffer();
-        bufferedReader = new BufferedReader(new FileReader(filePath));
+        try {
+            try {
+                setMFile(pathName);
+                StringBuffer stringBuffer = new StringBuffer();
+                bufferedReader = new BufferedReader(new FileReader(filePath));
 
-        while ((lineText = bufferedReader.readLine()) != null) {
-            if (!lineText.trim().isEmpty()) {
+                while ((lineText = bufferedReader.readLine()) != null) {
+                    if (!lineText.trim().isEmpty()) {
 //                fileText += lineText + "\n";
-                stringBuffer.append(lineText + "\n");
-                numberOfLines++;
-            }
-        }
-        getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
+                        stringBuffer.append(lineText + "\n");
+                        numberOfLines++;
+                    }
+                }
+                getFileChooser().getTextPanel().getTextContent().setText(stringBuffer.toString());
 //            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
-        getFileChooser().getFileName().setText(filePath);
+                getFileChooser().getFileName().setText(filePath);
 
 
-        getFileChooser().setApprovedSwitch(true);
+                getFileChooser().setApprovedSwitch(true);
 
 
-    } catch (FileTypeException e) {
-        error = e.getError();
-        getFileChooser().setApprovedSwitch(false);
-        getFileChooser().setError(error);
+            } catch (FileTypeException e) {
+                error = e.getError();
+                getFileChooser().setApprovedSwitch(false);
+                getFileChooser().setError(error);
 
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    }  finally {
-        bufferedReader.close();
-    }
-}catch (IOException e) {
-    e.printStackTrace();
-}
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                bufferedReader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -82,6 +82,7 @@ try {
 
     public void saveFile() {
         PrintWriter printWriter = null;
+        String lineText = "";
         try {
             printWriter = new PrintWriter(new BufferedWriter(new FileWriter(getFilePath())));
 //            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
@@ -93,7 +94,28 @@ try {
                 printWriter.close();
             }
         }
+        setNumberOfLines(0);
+        try {
 
+
+            try {
+
+//            StringBuffer stringBuffer = new StringBuffer();
+                bufferedReader = new BufferedReader(new FileReader(this.getFilePath()));
+                while ((lineText = bufferedReader.readLine()) != null) {
+                    if (!lineText.trim().isEmpty()) {
+                        numberOfLines++;
+                    }
+
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                bufferedReader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

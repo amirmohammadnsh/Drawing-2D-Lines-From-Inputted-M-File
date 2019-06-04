@@ -1,7 +1,10 @@
 package ir.fum.logic.Statements;
 
 public class Move extends Statements implements ArgumentsOfStatements {
-    private static  final int moveArguments = 2;
+//    private static final int moveArguments = 2;
+
+    private int moveArguments = Argument.MOVE.getArgumentCount(Argument.MOVE);
+
     private String rawX;
     private String rawY;
     private int x;
@@ -13,11 +16,27 @@ public class Move extends Statements implements ArgumentsOfStatements {
 //
 //    }
 
-    public Move(String[] arguments, int lineNumber ,boolean closedParenthese,String lineText) {
-        setLineNumber(lineNumber);
-        setArgumentsOfStatements(arguments,closedParenthese);
-        setLineText(lineText);
 
+    public Move(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+        setLineNumber(lineNumber);
+        setArgumentsOfStatements(arguments, closedParenthese);
+        setLineText(lineText);
+        setClosedParanthese(closedParenthese);
+
+
+    }
+
+    public void parseRawX() throws NumberFormatException {
+
+        setX(Integer.parseInt(this.rawX));
+
+
+    }
+
+    public void parseRawY() throws NumberFormatException {
+
+
+        setY(Integer.parseInt(this.rawY));
 
     }
 
@@ -54,7 +73,7 @@ public class Move extends Statements implements ArgumentsOfStatements {
     }
 
     @Override
-    public void setArgumentsOfStatements(String[] argumentsOfStatements,boolean closedParenthese) {
+    public void setArgumentsOfStatements(String[] argumentsOfStatements, boolean closedParenthese) {
 
         if (argumentsOfStatements.length == moveArguments && closedParenthese) {
             setRawX(argumentsOfStatements[0]);

@@ -47,17 +47,18 @@ public class Parser {
                 }
 
 
-
-
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } finally {
                 bufferedReader.close();
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 //        Compiler compiler = new Compiler(getStatements(), getConsoleTextArea());
+//        for (Statements item : statements) {
+//            System.out.println(item.getClass().getSimpleName());
+//        }
         new Compiler(getStatements(), getConsoleTextArea());
 
 
@@ -117,7 +118,7 @@ public class Parser {
                 arguments = lineStatement.substring(firstPlaceOfParenthese + 1).split(",");
 
             } else {
-
+                closedParenthese =true;
                 arguments = lineStatement.substring(firstPlaceOfParenthese + 1, secondPlaceOfParanthese).split(",");
             }
             switch (statement) {
@@ -126,7 +127,7 @@ public class Parser {
 
                     statements[lineNumber - emptyLineNumber - 1] = new Move(arguments, lineNumber, closedParenthese, lineStatement);
 //                        if(arguments.length!=moveArguements){
-//                            throw new NotEnoughArguementsException();
+//                            throw new UnProperArguementsException();
 //                        }
 
                     break;

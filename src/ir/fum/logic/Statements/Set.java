@@ -1,16 +1,19 @@
 package ir.fum.logic.Statements;
 
 public class Set extends Statements implements ArgumentsOfStatements {
-    private static  final int setArguments = 2;
+    //    private static  final int setArguments = 2;
+    private int setArguments = Argument.SET.getArgumentCount(Argument.SET);
     private String rawNameOfVariable;
     private String rawValue;
     private String nameOfVariable;
     private int value;
 
-    public Set(String[] arguments, int lineNumber,boolean closedParenthese,String lineText) {
+
+    public Set(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
         setLineNumber(lineNumber);
-        setArgumentsOfStatements(arguments,closedParenthese);
+        setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
+        setClosedParanthese(closedParenthese);
     }
 
     public String getRawNameOfVariable() {
@@ -46,7 +49,7 @@ public class Set extends Statements implements ArgumentsOfStatements {
     }
 
     @Override
-    public void setArgumentsOfStatements(String[] argumentsOfStatements,boolean closedParenthese) {
+    public void setArgumentsOfStatements(String[] argumentsOfStatements, boolean closedParenthese) {
 
         if (argumentsOfStatements.length == setArguments && closedParenthese) {
             setRawNameOfVariable(argumentsOfStatements[0]);

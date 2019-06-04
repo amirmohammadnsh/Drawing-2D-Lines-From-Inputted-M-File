@@ -12,6 +12,7 @@ public class For extends Statements implements ArgumentsOfStatements {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
+        setClosedParanthese(closedParenthese);
     }
 
 

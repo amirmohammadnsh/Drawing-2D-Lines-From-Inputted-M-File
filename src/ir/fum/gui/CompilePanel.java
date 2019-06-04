@@ -19,14 +19,16 @@ public class CompilePanel extends JPanel {
         setSize(450, 200);
         setLocation(10, 390);
 //        setBorder(new LineBorder(PenColor.GRAY, 3));
-        compileButton = new CompileButton(consoleTextArea);
-        compileButton.setEnabled(false);
+//        compileButton = new CompileButton(consoleTextArea);
+//        compileButton.setEnabled(false);
 
 //        correctMistakesButton = new JButton("Correct");
 //        compileButton.setBorder(new LineBorder(PenColor.GRAY,1));
         consoleTextArea = new JTextArea(10, 43);
         consoleTextArea.setBorder(new LineBorder(Color.GRAY, 2));
         consoleTextArea.setEnabled(false);
+        compileButton = new CompileButton(consoleTextArea);
+        compileButton.setEnabled(false);
 //        JScrollPane jScrollPane = new JScrollPane(consoleTextArea);
 //        jScrollPane.setPreferredSize(new Dimension(300, 190));
 //        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

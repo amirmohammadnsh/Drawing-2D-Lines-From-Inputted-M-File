@@ -21,6 +21,7 @@ public class SaveButton extends JButton implements ActionListener {
             getTextPanel().getTextContent().setEnabled(false);
 //            System.out.println(getEditAndSavePanel().getLoadFilePanel().getFilePath().getText());
             getEditAndSavePanel().getChosenFile().saveFile();
+//            getEditAndSavePanel().getChosenFile().setNumberOfLines();
         }
     });
     }

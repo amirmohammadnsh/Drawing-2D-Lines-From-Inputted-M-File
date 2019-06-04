@@ -1,11 +1,11 @@
 package ir.fum.logic.Exceptions;
 
-public class UnFinishedStatementException extends  Exception {
+public class UnProperArguementsException extends  Exception {
 
     private int lineNumber;
     private String wrongStatement;
 
-    public UnFinishedStatementException(int lineNumber, String wrongStatement){
+    public UnProperArguementsException(int lineNumber, String wrongStatement){
         setLineNumber(lineNumber);
         setWrongStatement(wrongStatement);
     }
@@ -29,7 +29,7 @@ public class UnFinishedStatementException extends  Exception {
     @Override
     public String toString() {
 //        return "Statement at line "+this.getLineNumber()+" "+ this.getWrongStatement();
-    return "Expected ')' in statement: "+ wrongStatement + " at line: " + lineNumber ;
+        return "Too few or too many arguments in statement: "+ wrongStatement + " at line: " + lineNumber ;
     }
 
 }

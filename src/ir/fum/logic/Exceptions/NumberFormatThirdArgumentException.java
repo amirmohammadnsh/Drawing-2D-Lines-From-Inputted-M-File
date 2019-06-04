@@ -1,11 +1,10 @@
 package ir.fum.logic.Exceptions;
 
-public class UnFinishedStatementException extends  Exception {
-
+public class NumberFormatThirdArgumentException extends NumberFormatException {
     private int lineNumber;
     private String wrongStatement;
 
-    public UnFinishedStatementException(int lineNumber, String wrongStatement){
+    public NumberFormatThirdArgumentException(int lineNumber, String wrongStatement) {
         setLineNumber(lineNumber);
         setWrongStatement(wrongStatement);
     }
@@ -29,7 +28,7 @@ public class UnFinishedStatementException extends  Exception {
     @Override
     public String toString() {
 //        return "Statement at line "+this.getLineNumber()+" "+ this.getWrongStatement();
-    return "Expected ')' in statement: "+ wrongStatement + " at line: " + lineNumber ;
+        return "Third argument is not a suitable input in statement: " + wrongStatement + " at line: " + lineNumber;
     }
 
 }
