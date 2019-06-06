@@ -23,6 +23,7 @@ public class CompileButton extends JButton implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                System.out.println(getTextPanel().getTextContent().getText());
+                getConsoleTextArea().setText(null);
                 parser = new Parser(getLoadFilePanel().getLoadFileButton().getFileChooser().getChosenFile(), getConsoleTextArea());
             }
         });

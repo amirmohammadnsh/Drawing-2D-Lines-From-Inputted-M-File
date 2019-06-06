@@ -1,7 +1,9 @@
 package ir.fum.logic;
 
 import ir.fum.logic.Exceptions.*;
+import ir.fum.logic.Statements.For;
 import ir.fum.logic.Statements.PenColor;
+import ir.fum.logic.Statements.Size;
 import ir.fum.logic.Statements.Statements;
 
 import javax.swing.*;
@@ -47,25 +49,36 @@ public class Compiler {
                 case "Style":
                     break;
                 case "Size":
-                    break;
-                case "PenColor":
-                    PenColor penColor = ((PenColor) statement);
-                    if (penColor.getRawR() == null ||
-                            penColor.getRawG() == null ||
-                            penColor.getRawB() == null) {
-                        if (!penColor.isClosedParanthese()) {
-                            throw new UnFinishedStatementException(penColor.getLineNumber(), penColor.getLineText());
+                    Size sizeStatement = (Size) statement;
+                    if (sizeStatement.getRawPenSize() == null) {
+                        if (!sizeStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(sizeStatement.getLineNumber(), sizeStatement.getLineText());
                         } else {
-                            throw new UnProperArguementsException(penColor.getLineNumber(), penColor.getLineText());
+                            throw new UnProperArguementsException(sizeStatement.getLineNumber(), sizeStatement.getLineText());
+                        }
+
+                    } else {
+                        sizeStatement.parseRawPenSize();
+                    }
+                    break;
+
+
+                case "PenColor":
+                    PenColor penColorStatement = (PenColor) statement;
+                    if (penColorStatement.getRawR() == null ||
+                            penColorStatement.getRawG() == null ||
+                            penColorStatement.getRawB() == null) {
+                        if (!penColorStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(penColorStatement.getLineNumber(), penColorStatement.getLineText());
+                        } else {
+                            throw new UnProperArguementsException(penColorStatement.getLineNumber(), penColorStatement.getLineText());
                         }
 
 
                     } else {
-                        penColor.parseRawR();
-                        penColor.parseRawG();
-                        penColor.parseRawB();
-
-
+                        penColorStatement.parseRawR();
+                        penColorStatement.parseRawG();
+                        penColorStatement.parseRawB();
                     }
                     break;
 
@@ -79,6 +92,19 @@ public class Compiler {
 
 
                 case "For":
+                    For forStatement = (For)statement;
+                    if ( forStatement.getRawNumberOfNextStatements() == null ||
+                            forStatement.getRawNumberOfRepetition() == null) {
+                        if (!forStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(forStatement.getLineNumber(), forStatement.getLineText());
+                        } else {
+                            throw new UnProperArguementsException(forStatement.getLineNumber(), forStatement.getLineText());
+                        }
+                    } else {
+                        forStatement.parseRawNumberOfNextStatements();
+                        forStatement.pareseRawNumberOfRepetition();
+                    }
+
                     break;
 
                 case "Up":

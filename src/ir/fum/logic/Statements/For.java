@@ -1,5 +1,10 @@
 package ir.fum.logic.Statements;
 
+import ir.fum.logic.Exceptions.NumberFormatFirstArgumentException;
+import ir.fum.logic.Exceptions.NumberFormatSecondArgumentException;
+import ir.fum.logic.Exceptions.OutOfBoundsFirstArgumrntException;
+import ir.fum.logic.Exceptions.OutOfBoundsSecondArgumrntException;
+
 public class For extends Statements implements ArgumentsOfStatements {
 
     private static final int forArguments = 2;
@@ -15,6 +20,23 @@ public class For extends Statements implements ArgumentsOfStatements {
         setClosedParanthese(closedParenthese);
     }
 
+    public void parseRawNumberOfNextStatements() throws OutOfBoundsFirstArgumrntException {
+        try {
+            int temp = Integer.parseInt(this.rawNumberOfNextStatements);
+            setNumberOfNextStatements(temp);
+        } catch (NumberFormatException ex) {
+            throw new NumberFormatFirstArgumentException(getLineNumber(), getLineText());
+        }
+    }
+
+    public void pareseRawNumberOfRepetition() throws OutOfBoundsSecondArgumrntException {
+        try {
+            int temp = Integer.parseInt(this.rawNumberOfRepetition);
+            setNumberOfRepetition(temp);
+        } catch (NumberFormatException ex) {
+            throw new NumberFormatSecondArgumentException(getLineNumber(), getLineText());
+        }
+    }
 
     public String getRawNumberOfNextStatements() {
         return rawNumberOfNextStatements;
@@ -36,16 +58,24 @@ public class For extends Statements implements ArgumentsOfStatements {
         return numberOfNextStatements;
     }
 
-    public void setNumberOfNextStatements(int numberOfNextStatements) {
-        this.numberOfNextStatements = numberOfNextStatements;
+    public void setNumberOfNextStatements(int numberOfNextStatements) throws OutOfBoundsFirstArgumrntException {
+        if (numberOfNextStatements <= 0) {
+            throw new OutOfBoundsFirstArgumrntException(getLineNumber(), getLineText());
+        } else {
+            this.numberOfNextStatements = numberOfNextStatements;
+        }
     }
 
     public int getNumberOfRepetition() {
         return numberOfRepetition;
     }
 
-    public void setNumberOfRepetition(int numberOfRepetition) {
-        this.numberOfRepetition = numberOfRepetition;
+    public void setNumberOfRepetition(int numberOfRepetition) throws OutOfBoundsSecondArgumrntException {
+        if (numberOfRepetition <= 0) {
+            throw new OutOfBoundsSecondArgumrntException(getLineNumber(), getLineText());
+        } else {
+            this.numberOfRepetition = numberOfRepetition;
+        }
     }
 
     @Override

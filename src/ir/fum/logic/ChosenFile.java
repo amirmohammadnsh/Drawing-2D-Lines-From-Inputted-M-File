@@ -38,7 +38,7 @@ public class ChosenFile {
 
 
                 getFileChooser().setApprovedSwitch(true);
-
+                bufferedReader.close();
 
             } catch (FileTypeException e) {
                 error = e.getError();
@@ -47,11 +47,18 @@ public class ChosenFile {
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            } finally {
-                bufferedReader.close();
+                //TODO
+                //print it in another terminal
+
             }
+//            finally {
+//                bufferedReader.close();
+//            }
         } catch (IOException e) {
             e.printStackTrace();
+            //TODO
+            //print it in another terminal
+
         }
 
     }

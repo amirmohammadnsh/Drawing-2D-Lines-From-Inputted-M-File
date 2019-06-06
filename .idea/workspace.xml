@@ -1,50 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81e87a9b-c736-44f9-b2cc-44b9765c7450" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatFirstArgumentException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatSecondArgumentException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatThirdArgumentException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsFirstArgumrntException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsSecondArgumrntException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsThirdArgumrntException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Argument.java" afterDir="false" />
+    <list default="true" id="1c7f8305-3fac-4031-8f9f-55e607cfb6bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/findbugs-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/render.experimental.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/CompilePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/CompilePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/SaveButton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/SaveButton$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/SaveButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/SaveButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/ChosenFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/ChosenFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Compiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Compiler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/NotEnoughArguementsException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/UnFinishedStatementException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/UnFinishedStatementException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/PreveiwCompiler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/For.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/For.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Inc.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Inc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Move.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/PenColor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/PenColor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Set.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Set.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Size.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Size.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Statements.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Statements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Style.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Style.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/gui/CompilePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/gui/CompilePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/gui/SaveButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/gui/SaveButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/META-INF/secondPartFinalPro.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/CompileButton$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/CompileButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/CompilePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/EditAndSavePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/EditButton$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/EditButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/FileChooser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/LoadFileButton$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/LoadFileButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/LoadFilePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/MainFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/SaveButton$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/SaveButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/TextPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/gui/WestPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/ChosenFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Compiler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/FileTypeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/NumberFormatFirstArgumentException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/NumberFormatSecondArgumentException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/NumberFormatThirdArgumentException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/OutOfBoundsFirstArgumrntException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/OutOfBoundsSecondArgumrntException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/OutOfBoundsThirdArgumrntException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/UnFinishedStatementException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/UnProperArguementsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Exceptions/UnidentifiedStatementException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Argument.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/ArgumentsOfStatements.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Down.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/For.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Inc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Move.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/PenColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Set.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Size.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Statements.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Style.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/StyleType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/UnknownStatement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/secondPartFinalPro/ir/fum/logic/Statements/Up.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ir/fum/gui/CompileButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/gui/CompileButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NotEnoughArguementsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnProperArguementsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnFinishedStatementException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnFinishedStatementException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/PreveiwCompiler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Inc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Inc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Move.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/PenColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/PenColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Set.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Set.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Size.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Size.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Statements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Statements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ir/fum/logic/Statements/Style.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,250 +71,121 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ir/fum/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Compiler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+            <state relative-caret-position="1550">
+              <caret line="134" column="2" lean-forward="true" selection-start-line="134" selection-start-column="2" selection-end-line="134" selection-end-column="2" />
               <folding>
-                <element signature="e#4385#4386#0" expanded="true" />
-                <element signature="e#4423#4424#0" expanded="true" />
-                <element signature="e#4488#4489#0" expanded="true" />
-                <element signature="e#4542#4543#0" expanded="true" />
-                <element signature="e#4585#4586#0" expanded="true" />
-                <element signature="e#4618#4619#0" expanded="true" />
-                <element signature="e#4676#4677#0" expanded="true" />
-                <element signature="e#4720#4721#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#5959#5960#0" expanded="true" />
+                <element signature="e#5997#5998#0" expanded="true" />
+                <element signature="e#6062#6063#0" expanded="true" />
+                <element signature="e#6116#6117#0" expanded="true" />
+                <element signature="e#6159#6160#0" expanded="true" />
+                <element signature="e#6192#6193#0" expanded="true" />
+                <element signature="e#6250#6251#0" expanded="true" />
+                <element signature="e#6294#6295#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatFirstArgumentException.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="38" />
-              <folding>
-                <element signature="e#1036#1037#0" expanded="true" />
-                <element signature="e#1081#1082#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/PenColor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1488">
-              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-              <folding>
-                <element signature="e#1686#1687#0" expanded="true" />
-                <element signature="e#1713#1714#0" expanded="true" />
-                <element signature="e#1753#1754#0" expanded="true" />
-                <element signature="e#1785#1786#0" expanded="true" />
-                <element signature="e#1816#1817#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1883#1884#0" expanded="true" />
-                <element signature="e#1915#1916#0" expanded="true" />
-                <element signature="e#1946#1947#0" expanded="true" />
-                <element signature="e#1973#1974#0" expanded="true" />
-                <element signature="e#2014#2015#0" expanded="true" />
-                <element signature="e#2046#2047#0" expanded="true" />
-                <element signature="e#2071#2072#0" expanded="true" />
-                <element signature="e#2095#2096#0" expanded="true" />
-                <element signature="e#2371#2372#0" expanded="true" />
-                <element signature="e#2395#2396#0" expanded="true" />
-                <element signature="e#2672#2673#0" expanded="true" />
-                <element signature="e#2696#2697#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsSecondArgumrntException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatSecondArgumentException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="563">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindBugs-IDEA-Workspace">
-    <toolWindowScrollToSource>false</toolWindowScrollToSource>
-    <toolWindowEditorPreview>false</toolWindowEditorPreview>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>content</find>
-      <find />
-      <find>values</find>
-      <find>System.ou</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/LoadFile.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/TextPanel.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/EditAndSavePanel.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Up.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Down.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Move.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/LoadFilePanel.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/LoadFileButton.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/FileChooser.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/UnknownStatements.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/UnknownStatement.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Color.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Size.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/ArguementsOfStatements.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Color.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/StyleType.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/ArgumentsOfStatements.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/UnknownStatement.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Up.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Down.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NotEnoughArguementsException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnidentifiedStatementException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/WestPanel.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/MainFrame.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/Main.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/PreveiwCompiler.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Arguement.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Argument.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Statements.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Move.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Set.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Inc.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Style.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Size.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/For.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/SaveButton.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnFinishedStatementException.java" />
         <option value="$PROJECT_DIR$/src/ir/fum/gui/CompileButton.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/gui/CompilePanel.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnProperArguementsException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Parser.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatThirdArgumentException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsFirstArgumrntException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsSecondArgumrntException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsThirdArgumrntException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatSecondArgumentException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatFirstArgumentException.java" />
-        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/PenColor.java" />
+        <option value="$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java" />
+        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/For.java" />
         <option value="$PROJECT_DIR$/src/ir/fum/logic/Compiler.java" />
+        <option value="$PROJECT_DIR$/src/ir/fum/logic/Statements/Size.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
+              <item name="finaljavaproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="finaljavaproject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
+              <item name="finaljavaproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="finaljavaproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
+              <item name="finaljavaproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="finaljavaproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="fum" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
+              <item name="finaljavaproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="finaljavaproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="fum" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
+              <item name="finaljavaproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="finaljavaproject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="fum" type="462c0819:PsiDirectoryNode" />
               <item name="logic" type="462c0819:PsiDirectoryNode" />
               <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstPartFinalPro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fum" type="462c0819:PsiDirectoryNode" />
-              <item name="logic" type="462c0819:PsiDirectoryNode" />
-              <item name="Statements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstPartFinalPro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DieHardCodes" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -318,7 +202,7 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ir.fum.Main" />
-      <module name="secondPartFinalPro" />
+      <module name="finaljavaproject" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ir.fum.*" />
@@ -336,19 +220,25 @@
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
-    <configuration>C:\Users\amirm\AppData\Roaming\Subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="81e87a9b-c736-44f9-b2cc-44b9765c7450" name="Default Changelist" comment="" />
-      <created>1557664169649</created>
+      <changelist id="1c7f8305-3fac-4031-8f9f-55e607cfb6bd" name="Default Changelist" comment="" />
+      <created>1559678878802</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1557664169649</updated>
+      <updated>1559678878802</updated>
+      <workItem from="1559678893672" duration="2752000" />
+      <workItem from="1559772188074" duration="5692000" />
+      <workItem from="1559805356862" duration="469000" />
     </task>
     <servers />
   </component>
-  <component name="TodoView" selected-index="2">
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="8694000" />
+  </component>
+  <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -358,528 +248,140 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23355705" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29954615" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32794118" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798927" weight="0.32941177" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49798658" weight="0.42647058" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32843137" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932975" weight="0.32892805" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49798927" weight="0.22320117" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50201344" side_tool="true" weight="0.3985294" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49798927" weight="0.32794118" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32794118" />
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="11" sideWeight="0.49865952" weight="0.46617648" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" order="12" visible="true" weight="0.32986626" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32843137" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="false" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="false" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="false" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="false" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="false" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ir/fum/gui/CompilePanel.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/swing/JTextField.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/io/File.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/awt/Font.java" />
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/TextPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/FileTypeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/LoadFilePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/LoadFileButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/ArgumentsOfStatements.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="89" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/String.java" />
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Up.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/FileChooser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/String.java" />
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/StyleType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Down.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Statements.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#206#207#0" expanded="true" />
-            <element signature="e#245#246#0" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#130#131#0" expanded="true" />
-            <element signature="e#161#162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Set.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Inc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Style.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/For.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/UnknownStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/EditAndSavePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="43" column="11" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/SaveButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="23" column="71" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/EditButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1747#1748#0" expanded="true" />
-            <element signature="e#1788#1789#0" expanded="true" />
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#1913#1914#0" expanded="true" />
-            <element signature="e#1950#1951#0" expanded="true" />
-            <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="e#2041#2042#0" expanded="true" />
-            <element signature="e#2091#2092#0" expanded="true" />
-            <element signature="e#2126#2127#0" expanded="true" />
-            <element signature="e#2157#2158#0" expanded="true" />
-            <element signature="e#2205#2206#0" expanded="true" />
-            <element signature="e#2245#2246#0" expanded="true" />
-            <element signature="e#3782#3783#0" expanded="true" />
-            <element signature="e#3887#3888#0" expanded="true" />
-            <element signature="e#4180#4181#0" expanded="true" />
-            <element signature="e#4256#4257#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnidentifiedStatementException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Size.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/CompilePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/WestPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Argument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ir/fum/gui/CompileButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="80" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+        <state relative-caret-position="204">
+          <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnFinishedStatementException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="33" selection-start-line="3" selection-end-line="33" />
-          <folding>
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#674#675#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/PreveiwCompiler.java" />
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/UnProperArguementsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="33" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsThirdArgumrntException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsFirstArgumrntException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatThirdArgumentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2101#2102#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-            <element signature="e#2236#2237#0" expanded="true" />
-            <element signature="e#2281#2282#0" expanded="true" />
-            <element signature="e#2319#2320#0" expanded="true" />
-            <element signature="e#2384#2385#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="e#2479#2480#0" expanded="true" />
-            <element signature="e#2512#2513#0" expanded="true" />
-            <element signature="e#2568#2569#0" expanded="true" />
-            <element signature="e#2612#2613#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatFirstArgumentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="38" />
-          <folding>
-            <element signature="e#1036#1037#0" expanded="true" />
-            <element signature="e#1081#1082#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatSecondArgumentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/PenColor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <element signature="e#1686#1687#0" expanded="true" />
-            <element signature="e#1713#1714#0" expanded="true" />
-            <element signature="e#1753#1754#0" expanded="true" />
-            <element signature="e#1785#1786#0" expanded="true" />
-            <element signature="e#1816#1817#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1883#1884#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
-            <element signature="e#1946#1947#0" expanded="true" />
-            <element signature="e#1973#1974#0" expanded="true" />
-            <element signature="e#2014#2015#0" expanded="true" />
-            <element signature="e#2046#2047#0" expanded="true" />
-            <element signature="e#2071#2072#0" expanded="true" />
-            <element signature="e#2095#2096#0" expanded="true" />
-            <element signature="e#2371#2372#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2672#2673#0" expanded="true" />
-            <element signature="e#2696#2697#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/OutOfBoundsSecondArgumrntException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ir/fum/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/Size.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/For.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2572#2573#0" expanded="true" />
+            <element signature="e#2613#2614#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Statements/PenColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="86" column="9" selection-start-line="82" selection-start-column="7" selection-end-line="86" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Exceptions/NumberFormatFirstArgumentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/Compiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        <state relative-caret-position="1550">
+          <caret line="134" column="2" lean-forward="true" selection-start-line="134" selection-start-column="2" selection-end-line="134" selection-end-column="2" />
           <folding>
-            <element signature="e#4385#4386#0" expanded="true" />
-            <element signature="e#4423#4424#0" expanded="true" />
-            <element signature="e#4488#4489#0" expanded="true" />
-            <element signature="e#4542#4543#0" expanded="true" />
-            <element signature="e#4585#4586#0" expanded="true" />
-            <element signature="e#4618#4619#0" expanded="true" />
-            <element signature="e#4676#4677#0" expanded="true" />
-            <element signature="e#4720#4721#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5959#5960#0" expanded="true" />
+            <element signature="e#5997#5998#0" expanded="true" />
+            <element signature="e#6062#6063#0" expanded="true" />
+            <element signature="e#6116#6117#0" expanded="true" />
+            <element signature="e#6159#6160#0" expanded="true" />
+            <element signature="e#6192#6193#0" expanded="true" />
+            <element signature="e#6250#6251#0" expanded="true" />
+            <element signature="e#6294#6295#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ir/fum/logic/ChosenFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <splitter-proportions>
@@ -893,18 +395,6 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -916,7 +406,7 @@
       </state>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>11</last-edited>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -927,17 +417,6 @@
         </settings>
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>
             <option name="proportions">
