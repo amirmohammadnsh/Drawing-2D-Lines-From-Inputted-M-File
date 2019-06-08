@@ -7,7 +7,8 @@ import ir.fum.logic.Exceptions.OutOfBoundsSecondArgumrntException;
 
 public class For extends Statements implements ArgumentsOfStatements {
 
-    private static final int forArguments = 2;
+//    private static final int forArguments = 2;
+    private int forArguments = Argument.FOR.getArgumentCount(Argument.FOR);
     private String rawNumberOfNextStatements;
     private String rawNumberOfRepetition;
     private int numberOfNextStatements;

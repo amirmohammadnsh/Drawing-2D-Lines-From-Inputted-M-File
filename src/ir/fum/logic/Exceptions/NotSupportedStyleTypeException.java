@@ -1,11 +1,11 @@
 package ir.fum.logic.Exceptions;
 
-public class NumberFormatFirstArgumentException extends NumberFormatException {
+public class NotSupportedStyleTypeException extends Exception {
 
     private int lineNumber;
     private String wrongStatement;
 
-    public NumberFormatFirstArgumentException(int lineNumber, String wrongStatement) {
+    public NotSupportedStyleTypeException(int lineNumber, String wrongStatement) {
         setLineNumber(lineNumber);
         setWrongStatement(wrongStatement);
     }
@@ -29,7 +29,8 @@ public class NumberFormatFirstArgumentException extends NumberFormatException {
     @Override
     public String toString() {
 //        return "Statement at line "+this.getLineNumber()+" "+ this.getWrongStatement();
-        return "First argument is not a suitable input in statement: " + wrongStatement + " at line: " + lineNumber ;
+        return "Input Argument is not a supported argument in statement : " + wrongStatement + " at line: " + lineNumber;
     }
 
-    }
+
+}

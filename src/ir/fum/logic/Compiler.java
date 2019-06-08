@@ -1,10 +1,7 @@
 package ir.fum.logic;
 
 import ir.fum.logic.Exceptions.*;
-import ir.fum.logic.Statements.For;
-import ir.fum.logic.Statements.PenColor;
-import ir.fum.logic.Statements.Size;
-import ir.fum.logic.Statements.Statements;
+import ir.fum.logic.Statements.*;
 
 import javax.swing.*;
 
@@ -47,7 +44,22 @@ public class Compiler {
                 case "Inc":
                     break;
                 case "Style":
+                    Style styleStatement = (Style) statement;
+                    if (styleStatement.getRawStyleType() == null) {
+
+                        if (!styleStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(styleStatement.getLineNumber(), styleStatement.getLineText());
+                        } else {
+                            throw new UnProperArguementsException(styleStatement.getLineNumber(), styleStatement.getLineText());
+                        }
+
+
+                    } else {
+                        styleStatement.parseRawStyleType();
+                    }
+
                     break;
+
                 case "Size":
                     Size sizeStatement = (Size) statement;
                     if (sizeStatement.getRawPenSize() == null) {
@@ -92,8 +104,8 @@ public class Compiler {
 
 
                 case "For":
-                    For forStatement = (For)statement;
-                    if ( forStatement.getRawNumberOfNextStatements() == null ||
+                    For forStatement = (For) statement;
+                    if (forStatement.getRawNumberOfNextStatements() == null ||
                             forStatement.getRawNumberOfRepetition() == null) {
                         if (!forStatement.isClosedParanthese()) {
                             throw new UnFinishedStatementException(forStatement.getLineNumber(), forStatement.getLineText());
@@ -153,6 +165,8 @@ public class Compiler {
         } catch (OutOfBoundsSecondArgumrntException ex) {
             getConsoleTextArea().append(ex.toString() + "\n");
         } catch (OutOfBoundsThirdArgumrntException ex) {
+            getConsoleTextArea().append(ex.toString() + "\n");
+        } catch (NotSupportedStyleTypeException ex) {
             getConsoleTextArea().append(ex.toString() + "\n");
         }
 
