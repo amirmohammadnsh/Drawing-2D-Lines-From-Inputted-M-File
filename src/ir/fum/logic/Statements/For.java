@@ -14,11 +14,12 @@ public class For extends Statements implements ArgumentsOfStatements {
     private int numberOfNextStatements;
     private int numberOfRepetition;
 
-    public For(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+    public For(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
+        setStatementIndex(statementIndex);
     }
 
     public void parseRawNumberOfNextStatements() throws OutOfBoundsFirstArgumrntException {

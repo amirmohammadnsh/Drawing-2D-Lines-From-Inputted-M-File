@@ -1,5 +1,7 @@
 package ir.fum.logic;
 
+import ir.fum.gui.RunPanel;
+import ir.fum.gui.WestPanel;
 import ir.fum.logic.Exceptions.*;
 import ir.fum.logic.Statements.*;
 
@@ -8,23 +10,62 @@ import javax.swing.*;
 public class Compiler {
     private Statements[] statements;
     private JTextArea consoleTextArea;
+    private int foundVariable;
+    private WestPanel westPanel;
 
-    public Compiler(Statements[] statements, JTextArea consoleTextArea) {
+    public Compiler(Statements[] statements, JTextArea consoleTextArea, WestPanel westPanel) {
         setStatements(statements);
         setConsoleTextArea(consoleTextArea);
+        setWestPanel(westPanel);
         compileStatements(getStatements(), getConsoleTextArea());
 
 
     }
 
+    public WestPanel getWestPanel() {
+        return westPanel;
+    }
+
+    public void setWestPanel(WestPanel westPanel) {
+        this.westPanel = westPanel;
+    }
+
+
     private void compileStatements(Statements[] statements, JTextArea consoleTextArea) {
 
         for (Statements statement : statements) {
+
             correct(statement, consoleTextArea);
+
+        }
+//        System.out.println(consoleTextArea.getText().isEmpty());
+        if (consoleTextArea.getText().isEmpty()) {
+            consoleTextArea.setText(" SUCCEEDED !");
+            RunPanel runPanel = new RunPanel();
+//            runPanel.setVisible(true);
+//            runPanel.repaint();
+            getWestPanel().add(runPanel);
+
+            getWestPanel().revalidate();// If you add components to the frame after it is visible then you need to revalidate() the JPanel that you add the components to.
+            runPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
 
         }
 
 
+    }
+
+    private boolean isFoundVariable(Statements[] statements, String nameOfVariable, int statementIndex) {
+
+        for (int i = statementIndex; i >= 0; i--) {
+            if (statements[i] instanceof Set) {
+                Set setStatement = (Set) statements[i];
+                if (setStatement.getNameOfVariable() != null && setStatement.getNameOfVariable().equals(nameOfVariable)) {
+                    foundVariable = setStatement.getValue();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private void correct(Statements statement, JTextArea consoleTextArea) {
@@ -34,15 +75,93 @@ public class Compiler {
 
             switch (statement.getClass().getSimpleName()) {
 
+
+                case "Set":
+                    Set setStatement = (Set) statement;
+                    if (setStatement.getRawNameOfVariable() == null ||
+                            setStatement.getRawValue() == null) {
+
+                        if (!setStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(setStatement.getLineNumber(), setStatement.getLineText());
+                        } else {
+                            throw new UnProperArguementsException(setStatement.getLineNumber(), setStatement.getLineText());
+                        }
+                    } else {
+                        setStatement.parseRawNameOfVariable();
+                        setStatement.parseRawValue();
+                    }
+                    break;
+
                 case "Move":
 
+                    Move moveStatement = (Move) statement;
+                    if (moveStatement.getRawX() == null ||
+                            moveStatement.getRawY() == null) {
+
+                        if (!moveStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(moveStatement.getLineNumber(), moveStatement.getLineText());
+                        } else {
+                            throw new UnProperArguementsException(moveStatement.getLineNumber(), moveStatement.getLineText());
+                        }
+
+
+                    } else {
+                        try {
+                            moveStatement.parseRawX();
+                            moveStatement.parseRawY();
+                        } catch (VariableException ex) {
+                            switch (ex.getArgumentNumber()) {
+                                case 1:
+                                    if (isFoundVariable(statements, moveStatement.getRawX(), moveStatement.getStatementIndex())) {
+                                        moveStatement.setX(foundVariable);
+                                    } else
+                                        throw new UnidentifiedArgumentException(moveStatement.getLineNumber(), moveStatement.getLineText(), 1);
+
+                                    break;
+                                case 2:
+                                    if (isFoundVariable(statements, moveStatement.getRawY(), moveStatement.getStatementIndex())) {
+                                        moveStatement.setY(foundVariable);
+                                    } else
+                                        throw new UnidentifiedArgumentException(moveStatement.getLineNumber(), moveStatement.getLineText(), 2);
+                                    break;
+                            }
+                        }
+
+                    }
+
 
                     break;
-                case "Set":
 
-                    break;
                 case "Inc":
+                    Inc incStatement = (Inc) statement;
+                    if (incStatement.getRawNameOfVariable() == null ||
+                            incStatement.getRawValue() == null) {
+
+                        if (!incStatement.isClosedParanthese()) {
+                            throw new UnFinishedStatementException(incStatement.getLineNumber(), incStatement.getLineText());
+                        } else {
+                            throw new UnProperArguementsException(incStatement.getLineNumber(), incStatement.getLineText());
+                        }
+
+
+                    } else {
+
+                        incStatement.parseRawNameOfVariable();
+                        incStatement.parseRawValue();
+
+                        if (isFoundVariable(statements, incStatement.getNameOfVariable(), incStatement.getStatementIndex())) {
+
+                            incStatement.setValue(foundVariable + incStatement.getValue());
+
+                        } else
+                            throw new UnidentifiedArgumentException(incStatement.getLineNumber(), incStatement.getLineText(), 1);
+
+
+                    }
+
                     break;
+
+
                 case "Style":
                     Style styleStatement = (Style) statement;
                     if (styleStatement.getRawStyleType() == null) {
@@ -94,15 +213,6 @@ public class Compiler {
                     }
                     break;
 
-//                } else {
-////                ((Move)statement).getRawX().
-//                    try {
-//                        ((PenColor) statement).parseRawX();
-//                        ((PenColor) statement).parseRawY();
-//                    } catch (NumberFormatFirstArgumentException ex) {
-//                    ((Move)statement).getRawX().trim().is
-
-
                 case "For":
                     For forStatement = (For) statement;
                     if (forStatement.getRawNumberOfNextStatements() == null ||
@@ -118,38 +228,20 @@ public class Compiler {
                     }
 
                     break;
-
-                case "Up":
-                    break;
-                case "Down":
-                    break;
+//
+//                case "Up":
+//
+//                    break;
+//                case "Down":
+//
+//                    break;
                 case "UnknownStatement":
-                    break;
+                    UnknownStatement unknownStatement = (UnknownStatement) statement;
+                    throw new UnidentifiedStatementException(unknownStatement.getLineNumber(), unknownStatement.getLineText());
+
             }
-//        if (statement instanceof Move) {
-//            if (((Move) statement).getRawX().equals(null) || ((Move) statement).getRawY().equals(null)) {
-//            consoleTextArea.append("Not Proper Arguments\n");
-//
-//            }else{
-////                ((Move)statement).getRawX().
-//                try{
-//                    ((Move)statement).parseRawX();
-//                    ((Move)statement).parseRawY();
-//                }catch (NumberFormatFirstArgumentException ex){
-////                    ((Move)statement).getRawX().trim().is
-//
-//
-//
-//                }catch (NumberFormatSecondArgumentException ex){
-//
-//
-//
-//
-//                }
-//
-//
-//            }
-//        }
+        } catch (UnidentifiedStatementException ex) {
+            getConsoleTextArea().append(ex.toString() + "\n");
         } catch (UnFinishedStatementException ex) {
             getConsoleTextArea().append(ex.toString() + "\n");
         } catch (UnProperArguementsException ex) {
@@ -168,13 +260,33 @@ public class Compiler {
             getConsoleTextArea().append(ex.toString() + "\n");
         } catch (NotSupportedStyleTypeException ex) {
             getConsoleTextArea().append(ex.toString() + "\n");
+        } catch (UnProperBeginningCharacterException ex) {
+            getConsoleTextArea().append(ex.toString() + "\n");
+        } catch (AlphebaticInputException ex) {
+            getConsoleTextArea().append(ex.toString() + "\n");
+        } catch (FloatInputException ex) {
+            getConsoleTextArea().append(ex.toString() + "\n");
+        } catch (UnidentifiedArgumentException ex) {
+            getConsoleTextArea().append(ex.toString() + "\n");
+            if (statement instanceof Move) {
+                Move moveStatement = (Move) statement;
+                if (ex.getArgumentNumber() == 1) {
+                    try {
+                        moveStatement.parseRawY();
+                    } catch (VariableException e) {
+                        try {
+                            if (isFoundVariable(statements, moveStatement.getRawY(), moveStatement.getStatementIndex())) {
+                                moveStatement.setY(foundVariable);
+                            } else
+                                throw new UnidentifiedArgumentException(moveStatement.getLineNumber(), moveStatement.getLineText(), 2);
+                        } catch (UnidentifiedArgumentException e1) {
+//                        e1.setArgumentNumber(2);
+                            getConsoleTextArea().append(e1.toString() + "\n");
+                        }
+                    }
+                }
+            }
         }
-
-
-    }
-
-
-    private void printError(String errorMessage, JTextArea consoleTextArea) {
 
 
     }

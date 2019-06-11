@@ -6,13 +6,14 @@ public class Style extends Statements implements ArgumentsOfStatements {
     //    private static final int styleArguments = 1;
     private int styleArguments = Argument.STYLE.getArgumentCount(Argument.STYLE);
     private String rawStyleType;
-    private StyleType styleType = StyleType.DOTTED;
+    private StyleType styleType = StyleType.SOLID;
 
-    public Style(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+    public Style(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
+        setStatementIndex(statementIndex);
     }
 
     public void parseRawStyleType() throws NotSupportedStyleTypeException {

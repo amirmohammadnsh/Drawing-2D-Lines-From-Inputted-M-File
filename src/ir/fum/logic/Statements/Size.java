@@ -12,12 +12,13 @@ public class Size extends Statements implements ArgumentsOfStatements {
     private int penSize = 1;
 
 
-    public Size(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+    public Size(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
 
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
+        setStatementIndex(statementIndex);
     }
 
     public void parseRawPenSize() throws OutOfBoundsFirstArgumrntException{

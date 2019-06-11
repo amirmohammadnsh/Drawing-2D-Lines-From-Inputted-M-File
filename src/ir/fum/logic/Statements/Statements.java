@@ -3,7 +3,16 @@ package ir.fum.logic.Statements;
 public abstract class Statements {
     private int lineNumber;
     private String lineText;
+    private int statementIndex;
     private boolean closedParanthese;
+
+    public int getStatementIndex() {
+        return statementIndex;
+    }
+
+    public void setStatementIndex(int statementIndex) {
+        this.statementIndex = statementIndex;
+    }
 
     public boolean isClosedParanthese() {
         return closedParanthese;

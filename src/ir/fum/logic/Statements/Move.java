@@ -1,5 +1,9 @@
 package ir.fum.logic.Statements;
 
+import ir.fum.logic.Exceptions.NumberFormatFirstArgumentException;
+import ir.fum.logic.Exceptions.OutOfBoundsFirstArgumrntException;
+import ir.fum.logic.Exceptions.VariableException;
+
 public class Move extends Statements implements ArgumentsOfStatements {
 //    private static final int moveArguments = 2;
 
@@ -17,26 +21,12 @@ public class Move extends Statements implements ArgumentsOfStatements {
 //    }
 
 
-    public Move(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+    public Move(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
-
-
-    }
-
-    public void parseRawX() throws NumberFormatException {
-
-        setX(Integer.parseInt(this.rawX));
-
-
-    }
-
-    public void parseRawY() throws NumberFormatException {
-
-
-        setY(Integer.parseInt(this.rawY));
+        setStatementIndex(statementIndex);
 
     }
 
@@ -70,6 +60,24 @@ public class Move extends Statements implements ArgumentsOfStatements {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void parseRawX() throws VariableException{
+        try {
+            int temp = Integer.parseInt(this.rawX);
+            setX(temp);
+        } catch (NumberFormatException ex) {
+            throw new VariableException(getLineNumber(),1);
+        }
+    }
+
+    public void parseRawY() throws VariableException {
+        try {
+            int temp = Integer.parseInt(this.rawY);
+            setY(temp);
+        } catch (NumberFormatException ex) {
+            throw new VariableException(getLineNumber(),2);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package ir.fum.logic;
 
+import ir.fum.gui.WestPanel;
 import ir.fum.logic.Statements.*;
 
 import javax.swing.*;
@@ -16,10 +17,12 @@ public class Parser {
     private boolean closedParenthese = true;
     private JTextArea consoleTextArea;
     private BufferedReader bufferedReader;
+    private WestPanel westPanel;
 
-    public Parser(ChosenFile chosenFile, JTextArea consoleTextArea) {
+    public Parser(ChosenFile chosenFile, JTextArea consoleTextArea, WestPanel westPanel) {
         setChosenFile(chosenFile);
         setConsoleTextArea(consoleTextArea);
+        setWestPanel(westPanel);
         statements = new Statements[getChosenFile().getNumberOfLines()];
 
         String lineText = "";
@@ -59,9 +62,17 @@ public class Parser {
 //        for (Statements item : statements) {
 //            System.out.println(item.getClass().getSimpleName());
 //        }
-        new Compiler(getStatements(), getConsoleTextArea());
+        new Compiler(getStatements(), getConsoleTextArea(), getWestPanel());
 
 
+    }
+
+    public WestPanel getWestPanel() {
+        return westPanel;
+    }
+
+    public void setWestPanel(WestPanel westPanel) {
+        this.westPanel = westPanel;
     }
 
     public Statements[] getStatements() {
@@ -91,73 +102,76 @@ public class Parser {
     public void analyzeStatements(String lineStatement, int lineNumber, int emptyLineNumber) {
         String[] arguments;
         int firstPlaceOfParenthese = lineStatement.indexOf("(");
+        int satementIndex = lineNumber - emptyLineNumber - 1;
 
 //        try {
         if (firstPlaceOfParenthese == -1) {     //no parentheses exist
 
 
             if (lineStatement.equals("UP")) {
-                statements[lineNumber - emptyLineNumber - 1] = new Up(lineStatement, lineNumber);
+                statements[satementIndex] = new Up(lineStatement, lineNumber, satementIndex);
 
             } else if (lineStatement.equals("DOWN")) {
-                statements[lineNumber - emptyLineNumber - 1] = new Down(lineStatement, lineNumber);
+                statements[satementIndex] = new Down(lineStatement, lineNumber, satementIndex);
 
             } else {
 //                    throw new UnidentifiedStatementException(lineNumber, lineStatement);
-                statements[lineNumber - emptyLineNumber - 1] = new UnknownStatement(lineStatement, lineNumber);
+                statements[satementIndex] = new UnknownStatement(lineStatement, lineNumber, satementIndex);
             }
 
         } else {
             String statement = lineStatement.substring(0, firstPlaceOfParenthese);
 
             int secondPlaceOfParanthese = lineStatement.lastIndexOf(")");
-            if (secondPlaceOfParanthese == -1) {
+//            if (secondPlaceOfParanthese == -1) {
 //                    throw new UnFinishedStatementException(lineNumber, statement);
+//
 //                statements[lineNumber - emptyLineNumber - 1] = new UnknownStatement(lineNumber);
+            if (!lineStatement.trim().endsWith(")")) {
                 closedParenthese = false;
                 arguments = lineStatement.substring(firstPlaceOfParenthese + 1).split(",");
 
             } else {
-                closedParenthese =true;
+                closedParenthese = true;
                 arguments = lineStatement.substring(firstPlaceOfParenthese + 1, secondPlaceOfParanthese).split(",");
             }
             switch (statement) {
                 case "MOVE":
 
 
-                    statements[lineNumber - emptyLineNumber - 1] = new Move(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new Move(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 //                        if(arguments.length!=moveArguements){
 //                            throw new UnProperArguementsException();
 //                        }
 
                     break;
                 case "COLOR":
-                    statements[lineNumber - emptyLineNumber - 1] = new PenColor(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new PenColor(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 
                     break;
                 case "SIZE":
-                    statements[lineNumber - emptyLineNumber - 1] = new Size(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new Size(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 
                     break;
                 case "STYLE":
-                    statements[lineNumber - emptyLineNumber - 1] = new Style(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new Style(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 
                     break;
                 case "FOR":
-                    statements[lineNumber - emptyLineNumber - 1] = new For(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new For(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 
                     break;
                 case "SET":
-                    statements[lineNumber - emptyLineNumber - 1] = new Set(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new Set(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 
                     break;
                 case "INC":
-                    statements[lineNumber - emptyLineNumber - 1] = new Inc(arguments, lineNumber, closedParenthese, lineStatement);
+                    statements[satementIndex] = new Inc(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 
                     break;
                 default:
 //                        throw new UnidentifiedStatementException(lineNumber, statement);
-                    statements[lineNumber - emptyLineNumber - 1] = new UnknownStatement(lineStatement, lineNumber);
+                    statements[satementIndex] = new UnknownStatement(lineStatement, lineNumber, satementIndex);
 
             }
         }

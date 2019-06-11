@@ -13,21 +13,41 @@ public class CompileButton extends JButton implements ActionListener {
     private Parser parser;
     private LoadFilePanel loadFilePanel;
     private JTextArea consoleTextArea;
+    private WestPanel westPanel;
 
-    public CompileButton(JTextArea consoleTextArea) {
+    public CompileButton(JTextArea consoleTextArea, WestPanel westPanel) {
         setConsoleTextArea(consoleTextArea);
+        setWestPanel(westPanel);
 //        setTextPanel(textPanel);
 //        setLoadFilePanel(loadFilePanel);
+        setLayout(null);
+        setBounds(-100, 390, 30, 80);
         setText("Compiler"); // should be changed to Compile Button
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                System.out.println(getTextPanel().getTextContent().getText());
                 getConsoleTextArea().setText(null);
-                parser = new Parser(getLoadFilePanel().getLoadFileButton().getFileChooser().getChosenFile(), getConsoleTextArea());
+                parser = new Parser(getLoadFilePanel().getLoadFileButton().getFileChooser().getChosenFile(), getConsoleTextArea(),getWestPanel());
             }
         });
 
+    }
+
+    public WestPanel getWestPanel() {
+        return westPanel;
+    }
+
+    public void setWestPanel(WestPanel westPanel) {
+        this.westPanel = westPanel;
+    }
+
+    public Parser getParser() {
+        return parser;
+    }
+
+    public void setParser(Parser parser) {
+        this.parser = parser;
     }
 
     public JTextArea getConsoleTextArea() {

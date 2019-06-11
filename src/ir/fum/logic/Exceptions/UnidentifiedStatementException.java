@@ -6,8 +6,8 @@ public class UnidentifiedStatementException extends Exception {
     private String wrongStatement;
 
     public UnidentifiedStatementException(int lineNumber, String wrongStatement) {
-    setLineNumber(lineNumber);
-    setWrongStatement(wrongStatement);
+        setLineNumber(lineNumber);
+        setWrongStatement(wrongStatement);
 
     }
 
@@ -26,5 +26,12 @@ public class UnidentifiedStatementException extends Exception {
     public void setWrongStatement(String wrongStatement) {
         this.wrongStatement = wrongStatement;
     }
-    
+
+    @Override
+    public String toString() {
+//        return "Statement at line "+this.getLineNumber()+" "+ this.getWrongStatement();
+        return "Unidentified statement in statement: " + wrongStatement + " at line: " + lineNumber;
+    }
+
+
 }

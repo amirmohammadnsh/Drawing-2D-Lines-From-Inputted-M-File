@@ -1,11 +1,11 @@
 package ir.fum.logic.Exceptions;
 
-public class NotSupportedStyleTypeException extends Exception {
+public class AlphebaticInputException extends Exception {
 
     private int lineNumber;
     private String wrongStatement;
 
-    public NotSupportedStyleTypeException(int lineNumber, String wrongStatement) {
+    public AlphebaticInputException(int lineNumber, String wrongStatement) {
         setLineNumber(lineNumber);
         setWrongStatement(wrongStatement);
     }
@@ -29,7 +29,7 @@ public class NotSupportedStyleTypeException extends Exception {
     @Override
     public String toString() {
 //        return "Statement at line "+this.getLineNumber()+" "+ this.getWrongStatement();
-        return "Input Argument is not a supported style in statement: " + wrongStatement + " at line: " + lineNumber;
+        return "Expecting integer-input, not a string in statement: " + wrongStatement + " at line: " + lineNumber;
     }
 
 

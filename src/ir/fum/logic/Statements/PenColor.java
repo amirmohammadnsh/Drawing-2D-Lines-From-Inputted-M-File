@@ -12,12 +12,13 @@ public class PenColor extends Statements implements ArgumentsOfStatements {
     private int g;
     private int b;
 
-    public PenColor(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+    public PenColor(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
 
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
+        setStatementIndex(statementIndex);
 
     }
 

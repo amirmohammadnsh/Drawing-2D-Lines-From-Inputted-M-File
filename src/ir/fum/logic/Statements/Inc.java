@@ -1,21 +1,24 @@
 package ir.fum.logic.Statements;
 
+import ir.fum.logic.Exceptions.AlphebaticInputException;
+import ir.fum.logic.Exceptions.FloatInputException;
+import ir.fum.logic.Exceptions.UnProperBeginningCharacterException;
+
 public class Inc extends Statements implements ArgumentsOfStatements {
 
     //    private static final int incArguments = 2;
     private int incArguments = Argument.INC.getArgumentCount(Argument.INC);
     private String rawNameOfVariable;
-
-
     private String rawValue;
     private String nameOfVariable;
     private int value;
 
-    public Inc(String[] arguments, int lineNumber, boolean closedParenthese, String lineText) {
+    public Inc(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
+        setStatementIndex(statementIndex);
     }
 
     public String getRawNameOfVariable() {
@@ -49,6 +52,42 @@ public class Inc extends Statements implements ArgumentsOfStatements {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public void parseRawNameOfVariable() throws UnProperBeginningCharacterException {
+
+//        int temp = Integer.parseInt(this.rawNumberOfNextStatements);
+////        setNumberOfNextStatements(temp);
+        if (!Character.isDigit(getRawNameOfVariable().trim().charAt(0))) {
+            setNameOfVariable(getRawNameOfVariable().trim());
+
+        } else {
+
+            throw new UnProperBeginningCharacterException(getLineNumber(), getLineText());
+
+        }
+
+
+    }
+
+    public void parseRawValue() throws FloatInputException, AlphebaticInputException {
+        try {
+            int temp = Integer.parseInt(this.rawValue);
+            setValue(temp);
+
+        } catch (NumberFormatException ex) {
+            try {
+                float temp = Float.parseFloat(this.rawValue);
+                throw new FloatInputException(getLineNumber(), getLineText());
+            } catch (NumberFormatException e) {
+                throw new AlphebaticInputException(getLineNumber(), getLineText());
+            }
+        }
+
+    }
+
+
+
+
 
     @Override
     public void setArgumentsOfStatements(String[] argumentsOfStatements, boolean closedParenthese) {
