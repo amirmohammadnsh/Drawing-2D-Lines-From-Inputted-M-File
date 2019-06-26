@@ -41,7 +41,8 @@ public class Compiler {
 //        System.out.println(consoleTextArea.getText().isEmpty());
         if (consoleTextArea.getText().isEmpty()) {
             consoleTextArea.setText(" SUCCEEDED !");
-            RunPanel runPanel = new RunPanel();
+            RunPanel runPanel = new RunPanel(getWestPanel().getMainFrame(),statements);
+
 //            runPanel.setVisible(true);
 //            runPanel.repaint();
             getWestPanel().add(runPanel);

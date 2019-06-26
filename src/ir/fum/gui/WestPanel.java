@@ -9,11 +9,9 @@ public class WestPanel extends JPanel {
     private CompilePanel compilePanel;
     private EditAndSavePanel editAndSavePanel;
     private MainFrame mainFrame;
-//    private RunPanel runPanel ;
 
-
-    public WestPanel() {
-
+    public WestPanel(MainFrame mainFrame) {
+        setMainFrame(mainFrame);
         setLayout(null);
 
         textPanel = new TextPanel();
@@ -36,6 +34,15 @@ public class WestPanel extends JPanel {
         add(compilePanel);
 //add(runPanel);
 
+    }
+
+    public MainFrame getMainFrame() {
+        return mainFrame;
+    }
+//    private RunPanel runPanel ;
+
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
     }
 
     public CompilePanel getCompilePanel() {
