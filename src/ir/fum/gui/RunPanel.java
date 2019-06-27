@@ -1,6 +1,8 @@
 package ir.fum.gui;
 
+import ir.fum.logic.Pen;
 import ir.fum.logic.Statements.Statements;
+import ir.fum.logic.Statements.StyleType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +14,7 @@ public class RunPanel extends JPanel {
     private MainFrame mainFrame;
     private PaintPanel paintPanel;
     private Statements[] statements;
+    private Pen pen;
 
     public RunPanel(MainFrame mainFrame, Statements[] statements) {
         setMainFrame(mainFrame);
@@ -25,9 +28,12 @@ public class RunPanel extends JPanel {
         getMainFrame().revalidate();// If you add components to the frame after it is visible then you need to revalidate() the JPanel that you add the components to.
         paintPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
 
-
-        normalRunnerButton = new NormalRunnerButton(getStatements(), paintPanel);
-        profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel);
+        pen = Pen.getInstance();
+        initPen(pen);
+        normalRunnerButton = new NormalRunnerButton(getStatements(), paintPanel, pen);
+        profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel, pen);
+        setNormalRunnerButton(normalRunnerButton);
+        setProfilerRunnerButton(profilerRunnerButton);
 
         add(normalRunnerButton);
         add(profilerRunnerButton);
@@ -36,6 +42,22 @@ public class RunPanel extends JPanel {
 //        revalidate();
 //        repaint();
 
+    }
+
+    public NormalRunnerButton getNormalRunnerButton() {
+        return normalRunnerButton;
+    }
+
+    public void setNormalRunnerButton(NormalRunnerButton normalRunnerButton) {
+        this.normalRunnerButton = normalRunnerButton;
+    }
+
+    public ProfilerRunnerButton getProfilerRunnerButton() {
+        return profilerRunnerButton;
+    }
+
+    public void setProfilerRunnerButton(ProfilerRunnerButton profilerRunnerButton) {
+        this.profilerRunnerButton = profilerRunnerButton;
     }
 
     public Statements[] getStatements() {
@@ -54,5 +76,18 @@ public class RunPanel extends JPanel {
         this.mainFrame = mainFrame;
     }
 
+    public void initPen(Pen pen) {
+        pen.setStartPointX(0);
+        pen.setStartPointY(0);
+        pen.setStopPointX(0);
+        pen.setStopPointY(0);
+        pen.setStyleType(StyleType.SOLID);
+        pen.setPenSize(1);
+        pen.setColorR(0);
+        pen.setColorG(0);
+        pen.setColorB(0);
+
+
+    }
 
 }

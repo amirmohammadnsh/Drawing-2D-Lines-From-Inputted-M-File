@@ -1,5 +1,6 @@
 package ir.fum.gui;
 
+import ir.fum.logic.Pen;
 import ir.fum.logic.Run;
 import ir.fum.logic.RunType;
 import ir.fum.logic.Statements.Statements;
@@ -11,18 +12,35 @@ import java.awt.event.ActionListener;
 public class NormalRunnerButton extends JButton {
     private Statements[] statements;
     private PaintPanel paintPanel;
+    private Run run;
 
-    public NormalRunnerButton(Statements[] statements,PaintPanel paintPanel) {
+    public NormalRunnerButton(Statements[] statements, PaintPanel paintPanel, Pen pen) {
         setStatements(statements);
         setPaintPanel(paintPanel);
         setText("Normal Runner");
+addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen);
+    }
+});
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new Run(RunType.NORMAL, getStatements(),getPaintPanel());
-            }
-        });
+//        addActionListener(new ActionListener() {
+//
+//            @Override
+//
+//            public void actionPerformed(ActionEvent e) {
+//
+//                run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen);
+//
+//
+//            }
+//        };
+
+//        addActionListener(new NormalButtonActionListener(getStatements(),getPaintPanel(),pen));
+
+
+
 
 
     }

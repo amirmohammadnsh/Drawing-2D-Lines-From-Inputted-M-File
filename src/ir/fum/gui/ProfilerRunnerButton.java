@@ -1,5 +1,6 @@
 package ir.fum.gui;
 
+import ir.fum.logic.Pen;
 import ir.fum.logic.Run;
 import ir.fum.logic.RunType;
 import ir.fum.logic.Statements.Statements;
@@ -12,7 +13,7 @@ public class ProfilerRunnerButton extends JButton {
     private Statements[] statements;
     private PaintPanel paintPanel;
 
-    public ProfilerRunnerButton(Statements[] statements,PaintPanel paintPanel) {
+    public ProfilerRunnerButton(Statements[] statements, PaintPanel paintPanel, Pen pen) {
         setStatements(statements);
         setPaintPanel(paintPanel);
         setText("Profiler Runner");
@@ -20,7 +21,8 @@ public class ProfilerRunnerButton extends JButton {
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Run(RunType.PROFILER, getStatements(),getPaintPanel());
+//                paintPanel.repaint();
+                new Run(RunType.PROFILER, getStatements(),getPaintPanel(),pen);
             }
         });
 

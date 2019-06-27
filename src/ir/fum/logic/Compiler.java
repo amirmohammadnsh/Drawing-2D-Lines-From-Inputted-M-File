@@ -6,16 +6,19 @@ import ir.fum.logic.Exceptions.*;
 import ir.fum.logic.Statements.*;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Compiler {
     private Statements[] statements;
     private JTextArea consoleTextArea;
     private int foundVariable;
     private WestPanel westPanel;
+    private RunPanel runPanel;
 
     public Compiler(Statements[] statements, JTextArea consoleTextArea, WestPanel westPanel) {
         setStatements(statements);
         setConsoleTextArea(consoleTextArea);
+//        System.out.println(getConsoleTextArea().getText());
         setWestPanel(westPanel);
         compileStatements(getStatements(), getConsoleTextArea());
 
@@ -31,6 +34,14 @@ public class Compiler {
     }
 
 
+    public RunPanel getRunPanel() {
+        return runPanel;
+    }
+
+    public void setRunPanel(RunPanel runPanel) {
+        this.runPanel = runPanel;
+    }
+
     private void compileStatements(Statements[] statements, JTextArea consoleTextArea) {
 
         for (Statements statement : statements) {
@@ -41,14 +52,38 @@ public class Compiler {
 //        System.out.println(consoleTextArea.getText().isEmpty());
         if (consoleTextArea.getText().isEmpty()) {
             consoleTextArea.setText(" SUCCEEDED !");
-            RunPanel runPanel = new RunPanel(getWestPanel().getMainFrame(),statements);
+            if (!getWestPanel().getRunPanelAdded()) {
+                runPanel = new RunPanel(getWestPanel().getMainFrame(), getStatements());
 
+                getWestPanel().setRunPanelAdded(true);
 //            runPanel.setVisible(true);
 //            runPanel.repaint();
-            getWestPanel().add(runPanel);
 
-            getWestPanel().revalidate();// If you add components to the frame after it is visible then you need to revalidate() the JPanel that you add the components to.
-            runPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
+                getWestPanel().add(runPanel);
+
+                getWestPanel().revalidate();// If you add components to the frame after it is visible then you need to revalidate() the JPanel that you add the components to.
+                runPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
+            } else {
+//               if (getWestPanel().getComponentAt(10,600) instanceof RunPanel)
+//              getWestPanel().remove(getWestPanel().getComponentAt(10,60));
+//              getWestPanel().revalidate();
+                for(Component component:getWestPanel().getComponents()){
+                    if (component instanceof RunPanel){
+                        getWestPanel().remove(component);
+                        getWestPanel().revalidate();
+                        getWestPanel().repaint();
+                        runPanel = new RunPanel(getWestPanel().getMainFrame(), getStatements());
+                        getWestPanel().setRunPanelAdded(true);
+                        getWestPanel().add(runPanel);
+                        getWestPanel().revalidate();
+                        runPanel.repaint();
+                    }
+                }
+
+
+
+
+            }
 
         }
 
@@ -112,9 +147,17 @@ public class Compiler {
                             moveStatement.parseRawY();
                         } catch (VariableException ex) {
                             switch (ex.getArgumentNumber()) {
+
                                 case 1:
                                     if (isFoundVariable(statements, moveStatement.getRawX(), moveStatement.getStatementIndex())) {
                                         moveStatement.setX(foundVariable);
+                                        try {
+                                            moveStatement.parseRawY();
+                                        } catch (VariableException e) {
+                                            if (isFoundVariable(statements, moveStatement.getRawY(), moveStatement.getStatementIndex())) {
+                                                moveStatement.setY(foundVariable);
+                                            }
+                                        }
                                     } else
                                         throw new UnidentifiedArgumentException(moveStatement.getLineNumber(), moveStatement.getLineText(), 1);
 
