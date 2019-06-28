@@ -4,6 +4,7 @@ import ir.fum.logic.Pen;
 import ir.fum.logic.Run;
 import ir.fum.logic.RunType;
 import ir.fum.logic.Statements.Statements;
+import ir.fum.logic.Statements.StyleType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,7 @@ public class ProfilerRunnerButton extends JButton {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                paintPanel.repaint();
+                initPen(pen);
                 new Run(RunType.PROFILER, getStatements(),getPaintPanel(),pen);
             }
         });
@@ -43,6 +45,21 @@ public class ProfilerRunnerButton extends JButton {
     public void setStatements(Statements[] statements) {
         this.statements = statements;
     }
+
+    public void initPen(Pen pen) {
+        pen.setStartPointX(0);
+        pen.setStartPointY(0);
+        pen.setStopPointX(0);
+        pen.setStopPointY(0);
+        pen.setStyleType(StyleType.SOLID);
+        pen.setPenSize(0);
+        pen.setColorR(0);
+        pen.setColorG(0);
+        pen.setColorB(0);
+
+
+    }
+
 }
 
 

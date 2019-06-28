@@ -4,6 +4,7 @@ import ir.fum.logic.Pen;
 import ir.fum.logic.Run;
 import ir.fum.logic.RunType;
 import ir.fum.logic.Statements.Statements;
+import ir.fum.logic.Statements.StyleType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +22,7 @@ public class NormalRunnerButton extends JButton {
 addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
+        initPen(pen);
         run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen);
     }
 });
@@ -59,6 +61,20 @@ addActionListener(new ActionListener() {
 
     public void setStatements(Statements[] statements) {
         this.statements = statements;
+    }
+
+    public void initPen(Pen pen) {
+        pen.setStartPointX(0);
+        pen.setStartPointY(0);
+        pen.setStopPointX(0);
+        pen.setStopPointY(0);
+        pen.setStyleType(StyleType.SOLID);
+        pen.setPenSize(0);
+        pen.setColorR(0);
+        pen.setColorG(0);
+        pen.setColorB(0);
+
+
     }
 
 }

@@ -43,7 +43,7 @@ public class CompilePanel extends JPanel {
         compileButton = new CompileButton(consoleTextArea,getWestPanel());
         compileButton.setEnabled(false);
 
-        compileButton.setBackground(Color.MAGENTA);
+        compileButton.setBackground(Color.PINK);
 //        compileButton.setBounds(10,10,100,100);
 //        gridBagConstraints.gridy = 0;
 //        gridBagConstraints.anchor = GridBagConstraints.WEST;

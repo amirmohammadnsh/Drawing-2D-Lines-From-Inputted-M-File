@@ -29,7 +29,7 @@ public class RunPanel extends JPanel {
         paintPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
 
         pen = Pen.getInstance();
-        initPen(pen);
+
         normalRunnerButton = new NormalRunnerButton(getStatements(), paintPanel, pen);
         profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel, pen);
         setNormalRunnerButton(normalRunnerButton);
@@ -76,18 +76,6 @@ public class RunPanel extends JPanel {
         this.mainFrame = mainFrame;
     }
 
-    public void initPen(Pen pen) {
-        pen.setStartPointX(0);
-        pen.setStartPointY(0);
-        pen.setStopPointX(0);
-        pen.setStopPointY(0);
-        pen.setStyleType(StyleType.SOLID);
-        pen.setPenSize(1);
-        pen.setColorR(0);
-        pen.setColorG(0);
-        pen.setColorB(0);
 
-
-    }
 
 }

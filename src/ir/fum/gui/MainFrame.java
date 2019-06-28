@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         setTitle("Part One");
         setLayout(null);
-        getContentPane().setBackground(Color.CYAN);
+        getContentPane().setBackground(new Color(155,255,255));
         WestPanel westPanel = new WestPanel(this);
         getContentPane().add(westPanel);
         setVisible(true);

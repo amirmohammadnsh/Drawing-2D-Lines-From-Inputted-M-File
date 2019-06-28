@@ -12,7 +12,7 @@ public class PaintPanel extends JPanel {
 
         setLocation(515, 10);
         setSize(900, 740);
-//        setBackground(Color.WHITE);
+//        setBackground(new Color(255,255,170));
     }
 
 //    @Override
