@@ -326,8 +326,13 @@ public class Compiler {
                         } catch (UnidentifiedArgumentException e1) {
 //                        e1.setArgumentNumber(2);
                             getConsoleTextArea().append(e1.toString() + "\n");
+                        }catch (OutOfBoundsSecondArgumrntException e2){
+                            getConsoleTextArea().append(e2.toString()+"\n");
                         }
+                    }catch (OutOfBoundsSecondArgumrntException e2){
+                        getConsoleTextArea().append(e2.toString()+"\n");
                     }
+
                 }
             }
         }

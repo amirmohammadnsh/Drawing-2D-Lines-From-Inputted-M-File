@@ -1,7 +1,7 @@
 package ir.fum.logic.Statements;
 
-import ir.fum.logic.Exceptions.NumberFormatFirstArgumentException;
 import ir.fum.logic.Exceptions.OutOfBoundsFirstArgumrntException;
+import ir.fum.logic.Exceptions.OutOfBoundsSecondArgumrntException;
 import ir.fum.logic.Exceptions.VariableException;
 
 public class Move extends Statements implements ArgumentsOfStatements {
@@ -21,7 +21,7 @@ public class Move extends Statements implements ArgumentsOfStatements {
 //    }
 
 
-    public Move(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
+    public Move(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
@@ -50,33 +50,42 @@ public class Move extends Statements implements ArgumentsOfStatements {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int x) throws OutOfBoundsFirstArgumrntException {
+        if (x >= 0 && x < 1000) {
+            this.x = x;
+        } else {
+            throw new OutOfBoundsFirstArgumrntException(getLineNumber(), getLineText());
+        }
     }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int y) throws OutOfBoundsSecondArgumrntException {
+        if (y >= 0 && y < 1000) {
+            this.y = y;
+        } else {
+            throw new OutOfBoundsSecondArgumrntException(getLineNumber(), getLineText());
+        }
+
     }
 
-    public void parseRawX() throws VariableException{
+    public void parseRawX() throws VariableException, OutOfBoundsFirstArgumrntException {
         try {
             int temp = Integer.parseInt(this.rawX);
             setX(temp);
         } catch (NumberFormatException ex) {
-            throw new VariableException(getLineNumber(),1);
+            throw new VariableException(getLineNumber(), 1);
         }
     }
 
-    public void parseRawY() throws VariableException {
+    public void parseRawY() throws VariableException, OutOfBoundsSecondArgumrntException {
         try {
             int temp = Integer.parseInt(this.rawY);
             setY(temp);
         } catch (NumberFormatException ex) {
-            throw new VariableException(getLineNumber(),2);
+            throw new VariableException(getLineNumber(), 2);
         }
     }
 

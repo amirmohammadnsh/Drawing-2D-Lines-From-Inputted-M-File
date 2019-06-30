@@ -7,6 +7,14 @@ public class Main {
 
 
             new MainFrame();
+//        for(int i = 0 ; i < 10 ; i++) {
+//            try {
+//                System.out.println("Hello");
+//                Thread.sleep(100000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
 //        try {
 //            String s = " 1";
 //            String[] arg = s.trim().split(" ");

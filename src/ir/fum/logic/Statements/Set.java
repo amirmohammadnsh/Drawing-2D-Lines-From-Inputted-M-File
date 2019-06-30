@@ -5,20 +5,24 @@ import ir.fum.logic.Exceptions.FloatInputException;
 import ir.fum.logic.Exceptions.UnProperBeginningCharacterException;
 
 public class Set extends Statements implements ArgumentsOfStatements {
+
+    private int setTime = ProcessingTime.SETTIME.getProcessingTime(ProcessingTime.SETTIME);
     //    private static  final int setArguments = 2;
     private int setArguments = Argument.SET.getArgumentCount(Argument.SET);
     private String rawNameOfVariable;
     private String rawValue;
     private String nameOfVariable;
     private int value;
-
-
-    public Set(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
+    public Set(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
         setStatementIndex(statementIndex);
+    }
+
+    public int getSetTime() {
+        return setTime;
     }
 
     public String getRawNameOfVariable() {

@@ -23,7 +23,7 @@ public class RunPanel extends JPanel {
         setLocation(10, 600);
 //        setBackground(Color.WHITE);
         setLayout(new FlowLayout());
-        paintPanel = new PaintPanel();
+        paintPanel = new PaintPanel(getMainFrame());
         getMainFrame().add(paintPanel);
         getMainFrame().revalidate();// If you add components to the frame after it is visible then you need to revalidate() the JPanel that you add the components to.
         paintPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code

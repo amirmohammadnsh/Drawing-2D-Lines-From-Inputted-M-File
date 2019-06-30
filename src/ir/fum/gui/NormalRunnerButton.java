@@ -22,7 +22,10 @@ public class NormalRunnerButton extends JButton {
 addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
+
         initPen(pen);
+
+
         run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen);
     }
 });

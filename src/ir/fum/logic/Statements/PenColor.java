@@ -3,6 +3,8 @@ package ir.fum.logic.Statements;
 import ir.fum.logic.Exceptions.*;
 
 public class PenColor extends Statements implements ArgumentsOfStatements {
+
+    private int penColorTime = ProcessingTime.PENCOLORTIME.getProcessingTime(ProcessingTime.PENCOLORTIME);
     //    private static final int penColorArguements = 3;
     private int penColorArguements = Argument.PENCOLOR.getArgumentCount(Argument.PENCOLOR);
     private String rawR;
@@ -11,8 +13,7 @@ public class PenColor extends Statements implements ArgumentsOfStatements {
     private int r;
     private int g;
     private int b;
-
-    public PenColor(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
+    public PenColor(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
 
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
@@ -20,6 +21,10 @@ public class PenColor extends Statements implements ArgumentsOfStatements {
         setClosedParanthese(closedParenthese);
         setStatementIndex(statementIndex);
 
+    }
+
+    public int getPenColorTime() {
+        return penColorTime;
     }
 
     public void parseRawR() throws OutOfBoundsFirstArgumrntException {

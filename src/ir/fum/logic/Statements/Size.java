@@ -5,14 +5,12 @@ import ir.fum.logic.Exceptions.OutOfBoundsFirstArgumrntException;
 
 public class Size extends Statements implements ArgumentsOfStatements {
 
+    private int sizeTime = ProcessingTime.SIZETIME.getProcessingTime(ProcessingTime.SIZETIME);
     //    private static final int penSizeArguements = 1;
     private int penSizeArguements = Argument.SIZE.getArgumentCount(Argument.SIZE);
-
     private String rawPenSize;
     private int penSize = 1;
-
-
-    public Size(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
+    public Size(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
 
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
@@ -21,7 +19,11 @@ public class Size extends Statements implements ArgumentsOfStatements {
         setStatementIndex(statementIndex);
     }
 
-    public void parseRawPenSize() throws OutOfBoundsFirstArgumrntException{
+    public int getSizeTime() {
+        return sizeTime;
+    }
+
+    public void parseRawPenSize() throws OutOfBoundsFirstArgumrntException {
         try {
             int temp = Integer.parseInt(this.rawPenSize);
             setPenSize(temp);
@@ -43,7 +45,7 @@ public class Size extends Statements implements ArgumentsOfStatements {
     }
 
     public void setPenSize(int penSize) throws OutOfBoundsFirstArgumrntException {
-        if(penSize>5 || penSize<1){
+        if (penSize > 5 || penSize < 1) {
             throw new OutOfBoundsFirstArgumrntException(getLineNumber(), getLineText());
         } else {
             this.penSize = penSize;

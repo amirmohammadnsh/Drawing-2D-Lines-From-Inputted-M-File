@@ -6,19 +6,23 @@ import ir.fum.logic.Exceptions.UnProperBeginningCharacterException;
 
 public class Inc extends Statements implements ArgumentsOfStatements {
 
+    private int incTime = ProcessingTime.INCTIME.getProcessingTime(ProcessingTime.INCTIME);
     //    private static final int incArguments = 2;
     private int incArguments = Argument.INC.getArgumentCount(Argument.INC);
     private String rawNameOfVariable;
     private String rawValue;
     private String nameOfVariable;
     private int value;
-
-    public Inc(String[] arguments, int lineNumber, boolean closedParenthese, String lineText,int statementIndex) {
+    public Inc(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
         setLineNumber(lineNumber);
         setArgumentsOfStatements(arguments, closedParenthese);
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
         setStatementIndex(statementIndex);
+    }
+
+    public int getIncTime() {
+        return incTime;
     }
 
     public String getRawNameOfVariable() {
@@ -84,9 +88,6 @@ public class Inc extends Statements implements ArgumentsOfStatements {
         }
 
     }
-
-
-
 
 
     @Override
