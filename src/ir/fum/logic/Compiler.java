@@ -51,7 +51,9 @@ public class Compiler {
         }
 //        System.out.println(consoleTextArea.getText().isEmpty());
         if (consoleTextArea.getText().isEmpty()) {
-            consoleTextArea.setText(" SUCCEEDED !");
+            consoleTextArea.setText("\n\t\t       SUCCEEDED !");
+            consoleTextArea.setBackground(null);
+            consoleTextArea.setBackground(new Color(188, 252, 100));
             if (!getWestPanel().getRunPanelAdded()) {
                 runPanel = new RunPanel(getWestPanel().getMainFrame(), getStatements());
 
@@ -63,32 +65,31 @@ public class Compiler {
 
                 getWestPanel().revalidate();// If you add components to the frame after it is visible then you need to revalidate() the JPanel that you add the components to.
                 runPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
-            } else {
+            }
+        } else if (!(consoleTextArea.getText().equals(" SUCCEEDED !"))) {
 //               if (getWestPanel().getComponentAt(10,600) instanceof RunPanel)
 //              getWestPanel().remove(getWestPanel().getComponentAt(10,60));
 //              getWestPanel().revalidate();
-                for(Component component:getWestPanel().getComponents()){
-                    if (component instanceof RunPanel){
-                        getWestPanel().remove(component);
-                        getWestPanel().revalidate();
-                        getWestPanel().repaint();
-                        runPanel = new RunPanel(getWestPanel().getMainFrame(), getStatements());
-                        getWestPanel().setRunPanelAdded(true);
-                        getWestPanel().add(runPanel);
-                        getWestPanel().revalidate();
-                        runPanel.repaint();
-                    }
+            consoleTextArea.setBackground(null);
+            consoleTextArea.setBackground(new Color(255, 128, 128));
+            for (Component component : getWestPanel().getComponents()) {
+                if (component instanceof RunPanel) {
+                    getWestPanel().remove(component);
+                    getWestPanel().revalidate();
+                    getWestPanel().repaint();
+                    runPanel = new RunPanel(getWestPanel().getMainFrame(), getStatements());
+                    getWestPanel().setRunPanelAdded(true);
+                    getWestPanel().add(runPanel);
+                    getWestPanel().revalidate();
+                    runPanel.repaint();
                 }
-
-
-
-
             }
+
 
         }
 
-
     }
+
 
     private boolean isFoundVariable(Statements[] statements, String nameOfVariable, int statementIndex) {
 
@@ -326,11 +327,11 @@ public class Compiler {
                         } catch (UnidentifiedArgumentException e1) {
 //                        e1.setArgumentNumber(2);
                             getConsoleTextArea().append(e1.toString() + "\n");
-                        }catch (OutOfBoundsSecondArgumrntException e2){
-                            getConsoleTextArea().append(e2.toString()+"\n");
+                        } catch (OutOfBoundsSecondArgumrntException e2) {
+                            getConsoleTextArea().append(e2.toString() + "\n");
                         }
-                    }catch (OutOfBoundsSecondArgumrntException e2){
-                        getConsoleTextArea().append(e2.toString()+"\n");
+                    } catch (OutOfBoundsSecondArgumrntException e2) {
+                        getConsoleTextArea().append(e2.toString() + "\n");
                     }
 
                 }

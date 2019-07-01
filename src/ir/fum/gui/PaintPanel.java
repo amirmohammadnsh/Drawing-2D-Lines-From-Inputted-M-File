@@ -16,7 +16,9 @@ public class PaintPanel extends JPanel {
         setMainFrame(mainFrame);
         setLocation(515, 10);
         setSize(900, 740);
+        setBackground(new Color(255,255,180));
         setVisible(true);
+
 
 //        setBackground(new Color(255,255,170));
 

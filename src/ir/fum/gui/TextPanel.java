@@ -15,7 +15,7 @@ public class TextPanel extends JPanel {
         textContent = new JTextArea(40, 40);
         textContent.setFont(font);
         textContent.setEnabled(false);
-        textContent.setBackground(new Color(179,129,254));
+        textContent.setBackground(new Color(128 ,128 ,192));
 
         JScrollPane jScrollPane = new JScrollPane(textContent);
         jScrollPane.setPreferredSize(new Dimension(450, 290));
