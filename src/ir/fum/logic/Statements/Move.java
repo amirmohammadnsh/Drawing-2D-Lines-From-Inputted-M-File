@@ -13,13 +13,7 @@ public class Move extends Statements implements ArgumentsOfStatements {
     private String rawY;
     private int x;
     private int y;
-
-//    public Move(int x, int y) {
-//        setX(x);
-//        setY(y);
-//
-//    }
-
+    private double moveTime;
 
     public Move(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
         setLineNumber(lineNumber);
@@ -28,6 +22,19 @@ public class Move extends Statements implements ArgumentsOfStatements {
         setClosedParanthese(closedParenthese);
         setStatementIndex(statementIndex);
 
+    }
+
+    public double getMoveTime() {
+        return moveTime;
+    }
+    //    public Move(int x, int y) {
+//        setX(x);
+//        setY(y);
+//
+//    }
+
+    public void setMoveTime(double moveTime) {
+        this.moveTime = moveTime;
     }
 
     public String getRawX() {
@@ -51,7 +58,7 @@ public class Move extends Statements implements ArgumentsOfStatements {
     }
 
     public void setX(int x) throws OutOfBoundsFirstArgumrntException {
-        if (x >= 0 && x < 1000) {
+        if (x >= -5 && x < 1500) {
             this.x = x;
         } else {
             throw new OutOfBoundsFirstArgumrntException(getLineNumber(), getLineText());
@@ -63,7 +70,7 @@ public class Move extends Statements implements ArgumentsOfStatements {
     }
 
     public void setY(int y) throws OutOfBoundsSecondArgumrntException {
-        if (y >= 0 && y < 1000) {
+        if (y >= -5 && y < 1500) {
             this.y = y;
         } else {
             throw new OutOfBoundsSecondArgumrntException(getLineNumber(), getLineText());

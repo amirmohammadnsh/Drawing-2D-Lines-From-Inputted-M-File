@@ -2,7 +2,6 @@ package ir.fum.gui;
 
 import ir.fum.logic.Pen;
 import ir.fum.logic.Statements.Statements;
-import ir.fum.logic.Statements.StyleType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +13,14 @@ public class RunPanel extends JPanel {
     private MainFrame mainFrame;
     private PaintPanel paintPanel;
     private Statements[] statements;
+    private WestPanel westPanel;
     private Pen pen;
 
-    public RunPanel(MainFrame mainFrame, Statements[] statements) {
+    public RunPanel(MainFrame mainFrame, Statements[] statements, WestPanel westPanel) {
         setMainFrame(mainFrame);
         setStatements(statements);
-        setSize(450, 100);
+        setWestPanel(westPanel);
+        setSize(450, 35);
         setLocation(10, 600);
 //        setBackground(Color.WHITE);
         setLayout(new FlowLayout());
@@ -29,9 +30,15 @@ public class RunPanel extends JPanel {
         paintPanel.repaint(); // this Keeps the RunPanel Area As We Set in The Code
 
         pen = Pen.getInstance();
+//        WestPanel westPanel  = null;
+//        for (Component component : getMainFrame().getComponents()) {
+//            if (component instanceof WestPanel) {
+//                westPanel = (WestPanel) component;
+//            }
+//        }
 
         normalRunnerButton = new NormalRunnerButton(getStatements(), paintPanel, pen);
-        profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel, pen);
+        profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel, pen,getWestPanel());
         setNormalRunnerButton(normalRunnerButton);
         setProfilerRunnerButton(profilerRunnerButton);
 
@@ -42,6 +49,14 @@ public class RunPanel extends JPanel {
 //        revalidate();
 //        repaint();
 
+    }
+
+    public WestPanel getWestPanel() {
+        return westPanel;
+    }
+
+    public void setWestPanel(WestPanel westPanel) {
+        this.westPanel = westPanel;
     }
 
     public NormalRunnerButton getNormalRunnerButton() {
@@ -75,7 +90,6 @@ public class RunPanel extends JPanel {
     public void setMainFrame(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-
 
 
 }

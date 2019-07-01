@@ -4,6 +4,7 @@ import ir.fum.gui.PaintPanel;
 import ir.fum.logic.Statements.StyleType;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 public class Pen {
 
@@ -122,6 +123,86 @@ public class Pen {
 //        getPaintPanel().paint(g2d);
 //        g2d.dispose();
     }
+
+    public void doDrawingDouble(Graphics g, StyleType styleType, int penSize,
+                         double startPointX, double startPointY, double stopPointX, double stopPointY,
+                          int colorR, int colorG, int colorB, PaintPanel paintPanel, RunType runType) {
+
+        setPaintPanel(paintPanel);
+        setRunType(runType);
+        Graphics2D g2d = (Graphics2D) g.create();
+        float[] dash = new float[3];
+        g2d.setColor(new Color(colorR, colorG, colorB));
+
+        if (styleType.ordinal() == 0) { //solid
+            BasicStroke bs1 = new BasicStroke(penSize);
+            g2d.setStroke(bs1);
+        }
+
+        if (styleType.ordinal() == 1) { //dashed
+            dash[0] = 2f * penSize;
+            dash[1] = 0f;
+            dash[2] = 2f * penSize;
+            BasicStroke bs1 = new BasicStroke(penSize, BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_ROUND, 1.0f, dash, 2f);
+
+            g2d.setStroke(bs1);
+        } else if (styleType.ordinal() == 2) { //dotted
+            dash[0] = 1f * penSize;
+            dash[1] = 1f * penSize;
+            dash[2] = 1f * penSize;
+            BasicStroke bs1 = new BasicStroke(penSize, BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_ROUND, 1.0f, dash, 2f);
+
+            g2d.setStroke(bs1);
+        }
+
+//        if (getRunType().ordinal() == 0) {
+//
+//
+//            getPaintPanel().getLines().add(new Lines(startPointX, startPointY, stopPointX, stopPointY, g2d));
+//        } else {
+//            g2d.drawLine(startPointX, startPointY, stopPointX, stopPointY);
+//        }
+
+        Shape line = new Line2D.Double(startPointX,startPointY,stopPointX,stopPointY);
+        g2d.draw(line);
+
+
+
+//        getPaintPanel().repaint();
+//        g2d.dispose();
+
+//        getPaintPanel().setStartPointX(startPointX);
+//        getPaintPanel().setStartPointY(startPointY);
+//        getPaintPanel().setStopPointX(stopPointX);
+//        getPaintPanel().setStopPointY(stopPointY);
+//        getPaintPanel().setGraphics2D(g2d);
+//        getPaintPanel().setPermisionToDraw(true);
+//        getPaintPanel().repaint();
+
+//        getPaintPanel().update(g2d);
+//        getPaintPanel().setGraphics2D(g2d);
+//        getPaintPanel().updateUI();
+
+//        getPaintPanel().setGraphics2D(getPaintPanel().getGraphics());
+//        getPaintPanel().paint(g2d);
+//        getPaintPanel().revalidate();
+//        getPaintPanel().repaint();
+//        g2d.dispose();
+//        g2d.drawLine(startPointX, startPointY, stopPointX, stopPointY);
+//        getPaintPanel().paint(g2d);
+//        g2d.dispose();
+    }
+
+
+
+
+
+
+
+
+
 
 
     public int getColorR() {

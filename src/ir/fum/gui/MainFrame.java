@@ -11,7 +11,7 @@ public class MainFrame extends JFrame {
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setTitle("Part One");
+        setTitle("Auto Painter");
         setLayout(null);
         getContentPane().setBackground(new Color(155,255,255));
         WestPanel westPanel = new WestPanel(this);

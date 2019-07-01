@@ -1,24 +1,24 @@
 package ir.fum.logic;
 
 import ir.fum.gui.PaintPanel;
+import ir.fum.gui.TimeFrame;
+import ir.fum.logic.Exceptions.RunTimeMoveException;
 import ir.fum.logic.Statements.*;
-
-import java.util.LinkedList;
 
 public class Run {
     private RunType runType;
     private Statements[] statements;
     private PaintPanel paintPanel;
     private Pen pen;
+    private TimeFrame timeFrame;
+    private boolean showTime = true;
+    private double totalTime = 0;
 
 
-    public Run(RunType runType, Statements[] statements, PaintPanel paintPanel, Pen pen) {
+    public Run(RunType runType, Statements[] statements, PaintPanel paintPanel, Pen pen, TimeFrame timeFrame) {
         setRunType(runType);
+        setTimeFrame(timeFrame);
         setStatements(statements);
-        //TODO
-//        for (Statements statement:statements){
-//            System.out.println(statement.getLineText());
-//        }
         setPaintPanel(paintPanel);
         setPen(pen);
         if (runType.ordinal() == 0) {  //normal run
@@ -50,10 +50,24 @@ public class Run {
 
 
         } else {   //profile run
-            profilerPainting(statements, pen);
+            try {
+                profilerPainting(statements, pen);
+                getTimeFrame().setVisible(true);
+            } catch (RunTimeMoveException e) {
+                e.showMessage();
+            }
+
 
         }
 
+    }
+
+    public TimeFrame getTimeFrame() {
+        return timeFrame;
+    }
+
+    public void setTimeFrame(TimeFrame timeFrame) {
+        this.timeFrame = timeFrame;
     }
 
     public Pen getPen() {
@@ -71,6 +85,7 @@ public class Run {
 
 
                 case "Set":
+
                     Set setStatement = (Set) statement;
 
 
@@ -86,17 +101,20 @@ public class Run {
                 case "Inc":
                     Inc incStatement = (Inc) statement;
 
+
                     break;
 
 
                 case "Style":
                     Style styleStatement = (Style) statement;
                     pen.setStyleType(styleStatement.getStyleType());
+
                     break;
 
                 case "Size":
                     Size sizeStatement = (Size) statement;
                     pen.setPenSize(sizeStatement.getPenSize());
+
                     break;
 
 
@@ -105,15 +123,17 @@ public class Run {
                     pen.setColorR(penColorStatement.getR());
                     pen.setColorG(penColorStatement.getG());
                     pen.setColorB(penColorStatement.getB());
+
                     break;
 
                 case "For":
                     For forStatement = (For) statement;
                     for (int i = 0; i < forStatement.getNumberOfRepetition(); i++) {
                         Statements[] statementsOfFor = new Statements[forStatement.getNumberOfNextStatements()];
+                        int index = forStatement.getStatementIndex();
                         for (int j = 0; j < statementsOfFor.length; j++) {
 
-                            statementsOfFor[j] = statements[forStatement.getStatementIndex() + 1];
+                            statementsOfFor[j] = statements[++index];
 
                         }
                         normalPainting(statementsOfFor, pen);
@@ -122,10 +142,17 @@ public class Run {
                     break;
 //
                 case "Up":
+
                     pen.setPenState(PenState.OFFPAPER);
+
+
                     break;
                 case "Down":
+
                     pen.setPenState(PenState.ONPAPER);
+
+                    break;
+                default:
                     break;
             }
             if (statement instanceof Move) {
@@ -149,7 +176,7 @@ public class Run {
 
     }
 
-    public void profilerPainting(Statements[] statements, Pen pen) {
+    public void profilerPainting(Statements[] statements, Pen pen) throws RunTimeMoveException {
 
         for (Statements statement : statements) {
 
@@ -160,45 +187,85 @@ public class Run {
                     Set setStatement = (Set) statement;
 
 
+//                        Thread.sleep(setStatement.getSetTime());
+                    delay(setStatement.getSetTime());
+//                        System.out.println(Thread.currentThread().getName());
+
+
+                    if (!showTime) {
+                        totalTime += setStatement.getSetTime();
+                    } else {
+                        getTimeFrame().getTimeTextArea().append(" SET \t\t" + setStatement.getSetTime() + "\n");
+                    }
+
                     break;
 
                 case "Move":
                     Move moveStatement = (Move) statement;
-                    double xDistance = moveStatement.getX() - pen.getStartPointX();
-                    double yDistance = moveStatement.getY() - pen.getStartPointY();
+//                    pen.setStopPointX(moveStatement.getX());
+//                    pen.setStopPointY(moveStatement.getY());
+                    double moveX = (double) moveStatement.getX();
+                    double moveY = (double) moveStatement.getY();
+                    double startX = (double) pen.getStartPointX();
+                    double startY = (double) pen.getStartPointY();
+                    double xDistance = moveX - startX;
+                    double yDistance = moveY - startY;
                     double length = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-                    double time = 5 * length;
-                    double xStep  = xDistance / length;
-                    double yStep  = yDistance / time;
-//                    LinkedList<int[][]> points = new ;
-                    
-                    for (int i = 0; i < length; i++) {
-                        try {
+                    moveStatement.setMoveTime(5 * length);
+                    double xStep = xDistance / length;
+                    double yStep = yDistance / length;
+                    double stopX = 0;
+                    double stopY = 0;
+//                    System.out.println(length);
 
-//                            pen.setStopPointX(xStep );
-//                            pen.setStopPointY((int) (yDistance / time) ;
-                            if (pen.getPenState().ordinal() == 1) {
+                    for (int i = 1; i <= length; i++) {
+                        if ((stopX > 1000 || stopX < 0) || (stopY > 1000 || stopY < 0)) {
+                            System.out.println("hello");
+                            throw new RunTimeMoveException((getPaintPanel().getMainFrame()));
 
-                                pen.doDrawing(paintPanel.getGraphics(), pen.getStyleType(), pen.getPenSize(), pen.getStartPointX(), pen.getStartPointY(), pen.getStopPointX(),
-                                        pen.getStopPointY(), pen.getColorR(), pen.getColorG(), pen.getColorB(), getPaintPanel(), getRunType());
-                            }
-                            pen.setStartPointX(pen.getStopPointX());
-                            pen.setStartPointY(pen.getStopPointY());
-
-
-                            Thread.sleep(5);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                        } else {
+                            stopX = startX + (xDistance / length);
+                            stopY = startY + (yDistance / length);
                         }
-                    }
 
+
+                        if (pen.getPenState().ordinal() == 1) {
+
+                            pen.doDrawingDouble(paintPanel.getGraphics(), pen.getStyleType(), pen.getPenSize(),
+                                    startX, startY, stopX, stopY,
+                                    pen.getColorR(), pen.getColorG(), pen.getColorB(), getPaintPanel(), getRunType());
+                        }
+
+                        startX = stopX;
+                        startY = stopY;
+//                            System.out.println("startX : " + startX + "startY : " + startY );
+
+                        delay(5);
+
+                    }
+                    pen.setStartPointX(moveStatement.getX());
+                    pen.setStartPointY(moveStatement.getY());
+//                    System.out.println(" X : " + pen.getStartPointX() + "Y : " + pen.getStartPointY());
 //                    TimeUnit.MILLISECONDS.sleep(100);
-//
+                    if (!showTime) {
+                        totalTime += moveStatement.getMoveTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" MOVE \t\t" + moveStatement.getMoveTime() + "\n");
+                    }
 
                     break;
 
                 case "Inc":
                     Inc incStatement = (Inc) statement;
+                    delay(incStatement.getIncTime());
+
+                    if (!showTime) {
+                        totalTime += incStatement.getIncTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" INC \t\t" + incStatement.getIncTime() + "\n");
+                    }
 
                     break;
 
@@ -206,11 +273,37 @@ public class Run {
                 case "Style":
                     Style styleStatement = (Style) statement;
                     pen.setStyleType(styleStatement.getStyleType());
+                    delay(styleStatement.getStyleTime());
+//                    try {
+//                        Thread.sleep(styleStatement.getStyleTime());
+//                    } catch (InterruptedException ex) {
+//                        ex.printStackTrace();
+//                    }
+                    if (!showTime) {
+                        totalTime += styleStatement.getStyleTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" STYLE \t\t" + styleStatement.getStyleTime() + "\n");
+                    }
+
                     break;
 
                 case "Size":
                     Size sizeStatement = (Size) statement;
                     pen.setPenSize(sizeStatement.getPenSize());
+                    delay(sizeStatement.getSizeTime());
+//                    try {
+//                        Thread.sleep(sizeStatement.getSizeTime());
+//                    } catch (InterruptedException ex) {
+//                        ex.printStackTrace();
+//                    }
+                    if (!showTime) {
+                        totalTime += sizeStatement.getSizeTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" SIZE \t\t" + sizeStatement.getSizeTime() + "\n");
+                    }
+
                     break;
 
 
@@ -219,32 +312,86 @@ public class Run {
                     pen.setColorR(penColorStatement.getR());
                     pen.setColorG(penColorStatement.getG());
                     pen.setColorB(penColorStatement.getB());
+                    delay(penColorStatement.getPenColorTime());
+//                    try {
+//                        Thread.sleep(penColorStatement.getPenColorTime());
+//                    } catch (InterruptedException ex) {
+//                        ex.printStackTrace();
+//                    }
+                    if (!showTime) {
+                        totalTime += penColorStatement.getPenColorTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" COLOR \t\t" + penColorStatement.getPenColorTime() + "\n");
+                    }
+
                     break;
 
                 case "For":
                     For forStatement = (For) statement;
+                    showTime = false;
                     for (int i = 0; i < forStatement.getNumberOfRepetition(); i++) {
                         Statements[] statementsOfFor = new Statements[forStatement.getNumberOfNextStatements()];
+                        int index = forStatement.getStatementIndex();
                         for (int j = 0; j < statementsOfFor.length; j++) {
 
-                            statementsOfFor[j] = statements[forStatement.getStatementIndex() + 1];
+                            statementsOfFor[j] = statements[++index];
 
                         }
-                        normalPainting(statementsOfFor, pen);
+//                        for(int k=0; k<statementsOfFor.length;k++){
+//                            System.out.println(statementsOfFor[k].getLineText());
+//                        }
+                        profilerPainting(statementsOfFor, pen);
                     }
+                    showTime = true;
+                    forStatement.setForTime(totalTime);
+
+                    getTimeFrame().getTimeTextArea().append(" FOR \t\t" + forStatement.getForTime() + "\n");
+//                    System.out.println(totalTime);
+                    totalTime = 0;
 
                     break;
 //
                 case "Up":
+                    Up upStatement = (Up) statement;
                     pen.setPenState(PenState.OFFPAPER);
+                    delay(upStatement.getUpTime());
+
+//                    try {
+//                        Thread.sleep(upStatement.getUpTime());
+//                    } catch (InterruptedException ex) {
+//                        ex.printStackTrace();
+//                    }
+                    if (!showTime) {
+                        totalTime += upStatement.getUpTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" UP \t\t" + upStatement.getUpTime() + "\n");
+                    }
+
                     break;
                 case "Down":
+                    Down downStatement = (Down) statement;
                     pen.setPenState(PenState.ONPAPER);
+                    delay(downStatement.getDownTime());
+//                    try {
+//                        Thread.sleep(downStatement.getDownTime());
+//                    } catch (InterruptedException ex) {
+//                        ex.printStackTrace();
+//                    }
+                    if (!showTime) {
+                        totalTime += downStatement.getDownTime();
+                    } else {
+
+                        getTimeFrame().getTimeTextArea().append(" DOWN \t\t" + downStatement.getDownTime() + "\n");
+                    }
+
+                    break;
+                default:
                     break;
             }
 
         }
-//      s
 
 
     }
@@ -271,6 +418,19 @@ public class Run {
 
     public void setPaintPanel(PaintPanel paintPanel) {
         this.paintPanel = paintPanel;
+    }
+
+    public void delay(double delayTime) {
+        long startTime = System.currentTimeMillis();
+
+        for (int count = 0; ; count++) {
+            long now = System.currentTimeMillis();
+            if (now - startTime >= delayTime)
+                break;
+// Do nothing
+        }
+
+
     }
 
 }

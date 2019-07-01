@@ -7,12 +7,13 @@ import ir.fum.logic.Exceptions.OutOfBoundsSecondArgumrntException;
 
 public class For extends Statements implements ArgumentsOfStatements {
 
-//    private static final int forArguments = 2;
+    //    private static final int forArguments = 2;
     private int forArguments = Argument.FOR.getArgumentCount(Argument.FOR);
     private String rawNumberOfNextStatements;
     private String rawNumberOfRepetition;
     private int numberOfNextStatements;
     private int numberOfRepetition;
+    private double forTime = 0;
 
     public For(String[] arguments, int lineNumber, boolean closedParenthese, String lineText, int statementIndex) {
         setLineNumber(lineNumber);
@@ -20,6 +21,14 @@ public class For extends Statements implements ArgumentsOfStatements {
         setLineText(lineText);
         setClosedParanthese(closedParenthese);
         setStatementIndex(statementIndex);
+    }
+
+    public double getForTime() {
+        return forTime;
+    }
+
+    public void setForTime(double forTime) {
+        this.forTime = forTime;
     }
 
     public void parseRawNumberOfNextStatements() throws OutOfBoundsFirstArgumrntException {

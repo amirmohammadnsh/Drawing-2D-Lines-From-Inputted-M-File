@@ -26,7 +26,7 @@ addActionListener(new ActionListener() {
         initPen(pen);
 
 
-        run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen);
+        run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen,null);
     }
 });
 

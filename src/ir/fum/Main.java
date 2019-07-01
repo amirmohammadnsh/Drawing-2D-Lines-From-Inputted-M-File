@@ -7,6 +7,12 @@ public class Main {
 
 
             new MainFrame();
+
+//        double a = 5.74  ;
+//        int b = (int)a ;
+//        double c = (double)b;
+//        System.out.println(c);
+
 //        for(int i = 0 ; i < 10 ; i++) {
 //            try {
 //                System.out.println("Hello");
