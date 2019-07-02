@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TextPanel extends JPanel {
-    JTextArea textContent;
+    private JTextArea textContent;
 
     public TextPanel() {
 
@@ -12,6 +12,7 @@ public class TextPanel extends JPanel {
 
         setSize(450, 300);
         setLocation(10, 50);
+
         textContent = new JTextArea(40, 40);
         textContent.setFont(font);
         textContent.setEnabled(false);
@@ -22,10 +23,7 @@ public class TextPanel extends JPanel {
         jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(jScrollPane);
 
-
         setVisible(true);
-
-
     }
 
     public JTextArea getTextContent() {

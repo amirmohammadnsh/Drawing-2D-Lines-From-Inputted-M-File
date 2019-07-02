@@ -20,9 +20,8 @@ public class Compiler {
         setConsoleTextArea(consoleTextArea);
 //        System.out.println(getConsoleTextArea().getText());
         setWestPanel(westPanel);
+
         compileStatements(getStatements(), getConsoleTextArea());
-
-
     }
 
     public WestPanel getWestPanel() {
@@ -46,7 +45,7 @@ public class Compiler {
 
         for (Statements statement : statements) {
 
-            correct(statement, consoleTextArea);
+            correct(statement, consoleTextArea);         //send each statement for checking its RawArguments
 
         }
 //        System.out.println(consoleTextArea.getText().isEmpty());
@@ -93,7 +92,7 @@ public class Compiler {
 
     private boolean isFoundVariable(Statements[] statements, String nameOfVariable, int statementIndex) {
 
-        for (int i = statementIndex; i >= 0; i--) {
+        for (int i = statementIndex; i >= 0; i--) {                 //check previous statements to find a setted variable
             if (statements[i] instanceof Set) {
                 Set setStatement = (Set) statements[i];
                 if (setStatement.getNameOfVariable() != null && setStatement.getNameOfVariable().equals(nameOfVariable)) {
@@ -115,15 +114,15 @@ public class Compiler {
 
                 case "Set":
                     Set setStatement = (Set) statement;
-                    if (setStatement.getRawNameOfVariable() == null ||
+                    if (setStatement.getRawNameOfVariable() == null ||           //if any of RawArguments is null
                             setStatement.getRawValue() == null) {
 
-                        if (!setStatement.isClosedParanthese()) {
+                        if (!setStatement.isClosedParanthese()) {                    //if there is no )
                             throw new UnFinishedStatementException(setStatement.getLineNumber(), setStatement.getLineText());
-                        } else {
+                        } else {                                                     //if the ) exists
                             throw new UnProperArguementsException(setStatement.getLineNumber(), setStatement.getLineText());
                         }
-                    } else {
+                    } else {                                                     //if not, do the parsing
                         setStatement.parseRawNameOfVariable();
                         setStatement.parseRawValue();
                     }
@@ -146,14 +145,14 @@ public class Compiler {
                         try {
                             moveStatement.parseRawX();
                             moveStatement.parseRawY();
-                        } catch (VariableException ex) {
+                        } catch (VariableException ex) {            //move args are variables
                             switch (ex.getArgumentNumber()) {
 
-                                case 1:
+                                case 1:                             //if first arg is var
                                     if (isFoundVariable(statements, moveStatement.getRawX(), moveStatement.getStatementIndex())) {
                                         moveStatement.setX(foundVariable);
                                         try {
-                                            moveStatement.parseRawY();
+                                            moveStatement.parseRawY();     //check the second arg too
                                         } catch (VariableException e) {
                                             if (isFoundVariable(statements, moveStatement.getRawY(), moveStatement.getStatementIndex())) {
                                                 moveStatement.setY(foundVariable);
@@ -163,7 +162,7 @@ public class Compiler {
                                         throw new UnidentifiedArgumentException(moveStatement.getLineNumber(), moveStatement.getLineText(), 1);
 
                                     break;
-                                case 2:
+                                case 2:                         //if the second arg is var
                                     if (isFoundVariable(statements, moveStatement.getRawY(), moveStatement.getStatementIndex())) {
                                         moveStatement.setY(foundVariable);
                                     } else

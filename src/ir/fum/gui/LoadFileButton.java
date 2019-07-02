@@ -27,7 +27,6 @@ public class LoadFileButton extends JButton implements ActionListener {
 
                 fileChooser = new FileChooser(getTextPanel(), getFileName(), getCompilePanel(), getEditAndSavePanel());
 
-
             }
         });
 

@@ -12,15 +12,17 @@ public class SaveButton extends JButton implements ActionListener {
     setTextPanel(textPanel);
     setEditAndSavePanel(editAndSavePanel);
     setEnabled(false);
+
     setText("Save");
+
     addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            setEnabled(false);
-            getEditAndSavePanel().getEditButton().setEnabled(true);
-            getTextPanel().getTextContent().setEnabled(false);
+            setEnabled(false);                                          //SaveButton itself will be disabled
+            getEditAndSavePanel().getEditButton().setEnabled(true);     //EditButton will be enabled
+            getTextPanel().getTextContent().setEnabled(false);          //textPanel cannot be edited
 //            System.out.println(getEditAndSavePanel().getLoadFilePanel().getFilePath().getText());
-            getEditAndSavePanel().getChosenFile().saveFile();
+            getEditAndSavePanel().getChosenFile().saveFile();           //changes made will be saved to the file
 //            getEditAndSavePanel().getChosenFile().setNumberOfLines();
         }
     });

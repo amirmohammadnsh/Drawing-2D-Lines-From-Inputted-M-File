@@ -14,9 +14,14 @@ public class EditAndSavePanel extends JPanel {
     private ChosenFile chosenFile;
 
     public EditAndSavePanel(TextPanel textPanel) {
+        //at anytime, one of the buttons is enabled;
+        // first Edit. By clicking on that,Save will be enabled and Edit is disabled;
+        // By clicking Save, Save will be disabled and Edit is enabled
         setTextPanel(textPanel);
+
         editButton = new EditButton(this, getTextPanel());
         saveButton = new SaveButton(this, getTextPanel());
+
         setLayout(new FlowLayout());
 //        setLayout(new GridBagLayout());
 //        GridBagConstraints gridBagConstraints = new GridBagConstraints();
@@ -36,9 +41,8 @@ public class EditAndSavePanel extends JPanel {
 //        setBackground(PenColor.PINK);
         add(editButton);
         add(saveButton);
+
         setVisible(true);
-
-
     }
 
     public ChosenFile getChosenFile() {

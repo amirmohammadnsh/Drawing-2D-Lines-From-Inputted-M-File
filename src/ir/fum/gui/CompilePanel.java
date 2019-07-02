@@ -14,7 +14,6 @@ public class CompilePanel extends JPanel {
 
     public CompilePanel(WestPanel westPanel) {
         setWestPanel(westPanel);
-//
 
         setSize(450, 200);
         setLocation(10, 390);
@@ -23,7 +22,7 @@ public class CompilePanel extends JPanel {
 //       // setBorder(new LineBorder(PenColor.GRAY, 3));
 //        //compileButton = new CompileButton(consoleTextArea);
 //        //compileButton.setEnabled(false);
-//   setLayout(null);
+//          setLayout(null);
 //        //correctMistakesButton = new JButton("Correct");
 //        //compileButton.setBorder(new LineBorder(PenColor.GRAY,1));
         consoleTextArea = new JTextArea(10, 43);
@@ -42,7 +41,6 @@ public class CompilePanel extends JPanel {
         consoleTextArea.setEnabled(false);
         compileButton = new CompileButton(consoleTextArea,getWestPanel());
         compileButton.setEnabled(false);
-
         compileButton.setBackground(new Color(255,184,113));
 //        compileButton.setBackground(Color.PINK);
 //        compileButton.setBounds(10,10,100,100);
@@ -50,7 +48,6 @@ public class CompilePanel extends JPanel {
 //        gridBagConstraints.anchor = GridBagConstraints.WEST;
 //        add(compileButton, gridBagConstraints);
         add(compileButton);
-
         add(jScrollPane);
 //        JScrollPane jScrollPane = new JScrollPane(consoleTextArea);
 //        jScrollPane.setPreferredSize(new Dimension(300, 190));
@@ -70,8 +67,6 @@ public class CompilePanel extends JPanel {
 //        //gridBagConstraints.anchor = GridBagConstraints.WEST;
 //        add(consoleTextArea, gridBagConstraints);
         setVisible(true);
-
-
     }
 
     public WestPanel getWestPanel() {

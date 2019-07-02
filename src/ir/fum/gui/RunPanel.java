@@ -37,8 +37,8 @@ public class RunPanel extends JPanel {
 //            }
 //        }
 
-        normalRunnerButton = new NormalRunnerButton(getStatements(), paintPanel, pen);
-        profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel, pen,getWestPanel());
+        normalRunnerButton = new NormalRunnerButton(getStatements(), paintPanel, pen , this);
+        profilerRunnerButton = new ProfilerRunnerButton(getStatements(), paintPanel, pen,getWestPanel(),this);
         setNormalRunnerButton(normalRunnerButton);
         setProfilerRunnerButton(profilerRunnerButton);
 

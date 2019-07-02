@@ -15,12 +15,22 @@ public class ProfilerRunnerButton extends JButton {
     private PaintPanel paintPanel;
     private WestPanel westPanel;
     private TimeFrame timeFrame;
+    private RunPanel runPanel;
 
 
-    public ProfilerRunnerButton(Statements[] statements, PaintPanel paintPanel, Pen pen, WestPanel westPanel) {
+    public RunPanel getRunPanel() {
+        return runPanel;
+    }
+
+    public void setRunPanel(RunPanel runPanel) {
+        this.runPanel = runPanel;
+    }
+
+    public ProfilerRunnerButton(Statements[] statements, PaintPanel paintPanel, Pen pen, WestPanel westPanel, RunPanel runPanel) {
         setStatements(statements);
         setPaintPanel(paintPanel);
         setWestPanel(westPanel);
+        setRunPanel(runPanel);
         setText("Profiler Runner");
 
         addActionListener(new ActionListener() {
@@ -45,7 +55,7 @@ public class ProfilerRunnerButton extends JButton {
 //               for(Component component : getWestPanel().getComponents()){
 ////                   System.out.println(component.toString());
 //                   if(component instanceof TimeFrame){
-
+                getRunPanel().getNormalRunnerButton().setEnabled(false);
                 new Run(RunType.PROFILER, getStatements(), getPaintPanel(), pen, timeFrame);
 //
 

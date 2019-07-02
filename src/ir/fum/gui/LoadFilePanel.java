@@ -18,25 +18,24 @@ public class LoadFilePanel extends JPanel {
         setEditAndSavePanel(editAndSavePanel);
         filePath = new JTextField(30);
         setFilePath(filePath);
+
         loadFileButton = new LoadFileButton(getTextPanel(), filePath, getCompilePanel(), getEditAndSavePanel());
 
         loadFileButton.setBorder(new LineBorder(Color.BLUE, 2));
 
-
         setSize(450, 30);
         setLocation(10, 10);
+
         setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
-
         add(loadFileButton, gridBagConstraints);
-
 
         filePath.setBorder(new LineBorder(Color.BLUE, 2));
 
         gridBagConstraints.weightx = 0.5;
         add(filePath, gridBagConstraints);
-        setVisible(true);
 
+        setVisible(true);
     }
 
     public LoadFileButton getLoadFileButton() {

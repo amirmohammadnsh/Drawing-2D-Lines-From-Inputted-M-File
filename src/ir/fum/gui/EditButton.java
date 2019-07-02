@@ -13,13 +13,15 @@ public class EditButton extends JButton implements ActionListener {
         setTextPanel(textPanel);
         setEnabled(false);
         setEditAndSavePanel(editAndSavePanel);
+
         setText("Edit");
+
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getTextPanel().getTextContent().setEnabled(true);
-                setEnabled(false);
-                getEditAndSavePanel().getSaveButton().setEnabled(true);
+                getTextPanel().getTextContent().setEnabled(true);       //textPanel can be editable
+                setEnabled(false);                                      //EditButton itself will be disabled
+                getEditAndSavePanel().getSaveButton().setEnabled(true); //SaveButton will be enabled
             }
         });
 

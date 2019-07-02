@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class Parser {
 
-    //check where to call this class , Should contain ChosenFile class .Done !
     private ChosenFile chosenFile;
     private Statements[] statements;
     private boolean closedParenthese = true;
@@ -20,18 +19,19 @@ public class Parser {
     private WestPanel westPanel;
 
     public Parser(ChosenFile chosenFile, JTextArea consoleTextArea, WestPanel westPanel) {
+        //creates Statements array with RawValues to pass to compile for checking the mistakes
+        //no mistake checking is done here
         setChosenFile(chosenFile);
         setConsoleTextArea(consoleTextArea);
         setWestPanel(westPanel);
+
         statements = new Statements[getChosenFile().getNumberOfLines()];
 
         String lineText = "";
-        int lineNumber = 1;
+        int lineNumber = 1;         //lineNumber is number of whole lines including empty ones
         int emptyLineNumber = 0;
 //        System.out.println(getChosenFile().getFilePath());
-        try {
-
-
+        try {                       //read file line by line and analyse each line
             try {
 
 //            StringBuffer stringBuffer = new StringBuffer();
@@ -53,6 +53,7 @@ public class Parser {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } finally {
+//                if (bufferedReader != null)
                 bufferedReader.close();
             }
         } catch (IOException e) {
@@ -105,7 +106,7 @@ public class Parser {
         int satementIndex = lineNumber - emptyLineNumber - 1;
 
 //        try {
-        if (firstPlaceOfParenthese == -1) {     //no parentheses exist
+        if (firstPlaceOfParenthese == -1) {                 //no parentheses exist so it may be UP or DOWN or wrong
 
 
             if (lineStatement.equals("UP")) {
@@ -122,28 +123,25 @@ public class Parser {
         } else {
             String statement = lineStatement.substring(0, firstPlaceOfParenthese);
 
-            int secondPlaceOfParanthese = lineStatement.lastIndexOf(")");
+            int secondPlaceOfParanthese = lineStatement.lastIndexOf(")");       //finding the last index of )
 //            if (secondPlaceOfParanthese == -1) {
 //                    throw new UnFinishedStatementException(lineNumber, statement);
 //
 //                statements[lineNumber - emptyLineNumber - 1] = new UnknownStatement(lineNumber);
-            if (!lineStatement.trim().endsWith(")")) {
+            if (!lineStatement.trim().endsWith(")")) {                  //no ) at the end exist => the ( is not closed
                 closedParenthese = false;
                 arguments = lineStatement.substring(firstPlaceOfParenthese + 1).split(",");
 
-            } else {
+            } else {                                                    // the ( is closed
                 closedParenthese = true;
                 arguments = lineStatement.substring(firstPlaceOfParenthese + 1, secondPlaceOfParanthese).split(",");
             }
             switch (statement) {
                 case "MOVE":
-
-
                     statements[satementIndex] = new Move(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);
 //                        if(arguments.length!=moveArguements){
 //                            throw new UnProperArguementsException();
 //                        }
-
                     break;
                 case "COLOR":
                     statements[satementIndex] = new PenColor(arguments, lineNumber, closedParenthese, lineStatement, satementIndex);

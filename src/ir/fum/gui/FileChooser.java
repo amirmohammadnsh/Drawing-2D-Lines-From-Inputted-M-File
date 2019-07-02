@@ -16,13 +16,14 @@ public class FileChooser extends JFileChooser {
     private CompilePanel compilePanel;
     private String error;
     private EditAndSavePanel editAndSavePanel;
+
     public FileChooser(TextPanel textPanel, JTextField fileName, CompilePanel compilePanel, EditAndSavePanel editAndSavePanel) {
         setTextPanel(textPanel);
         setFileName(fileName);
         setCompilePanel(compilePanel);
         setEditAndSavePanel(editAndSavePanel);
 
-        FileSystemView.getFileSystemView().getHomeDirectory();
+        FileSystemView.getFileSystemView().getHomeDirectory();      //where to be shown when FileChooser is open
         showOpenDialog(this);
 
     }
@@ -57,10 +58,10 @@ public class FileChooser extends JFileChooser {
         String selectedFilePath = selectedFile.getPath();
         chosenFile = new ChosenFile(selectedFilePath, this);
 
-        if (approvedSwitch) {
+        if (approvedSwitch) {                                           //if the chosen file is a "m" file
             super.approveSelection();
-            getCompilePanel().getCompileButton().setEnabled(true);
-            getEditAndSavePanel().getEditButton().setEnabled(true);
+            getCompilePanel().getCompileButton().setEnabled(true);      //CompileButton will be enabled
+            getEditAndSavePanel().getEditButton().setEnabled(true);     //EditButton will be enabled
         } else {
             JOptionPane.showMessageDialog(null, error + " is not a .M file\n" + "Please Choose Another File");
         }

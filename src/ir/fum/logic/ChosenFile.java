@@ -9,11 +9,12 @@ public class ChosenFile {
     private String filePath;
     private FileChooser fileChooser;
     private String error;
-    private int numberOfLines;
+    private int numberOfLines;              //which will be used as Statements array length created in Parser
     private int numberOfEmptyLines;
     private BufferedReader bufferedReader;
 
     public ChosenFile(String pathName, FileChooser fileChooser) {
+        //reading the chosen file
         String lineText = "";
         String fileText = "";
 //        BufferedReader bufferedReader;
@@ -36,8 +37,7 @@ public class ChosenFile {
 //            System.out.println(getFileChooser().getTextPanel().getTextContent().getText());
                 getFileChooser().getFileName().setText(filePath);
 
-
-                getFileChooser().setApprovedSwitch(true);
+                getFileChooser().setApprovedSwitch(true);  //when the whole file is read, ApprovedSwitch is set
                 bufferedReader.close();
 
             } catch (FileTypeException e) {
@@ -47,18 +47,14 @@ public class ChosenFile {
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                //TODO
-                //print it in another terminal
-
             }
 //            finally {
+//            if(bufferedReader != null) {
 //                bufferedReader.close();
+//            }
 //            }
         } catch (IOException e) {
             e.printStackTrace();
-            //TODO
-            //print it in another terminal
-
         }
 
     }
@@ -101,12 +97,10 @@ public class ChosenFile {
                 printWriter.close();
             }
         }
+
         setNumberOfLines(0);
-        try {
-
-
+        try {                           //reading the file in order to have the new changes
             try {
-
 //            StringBuffer stringBuffer = new StringBuffer();
                 bufferedReader = new BufferedReader(new FileReader(this.getFilePath()));
                 while ((lineText = bufferedReader.readLine()) != null) {
@@ -118,6 +112,7 @@ public class ChosenFile {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } finally {
+//                if(bufferedReader!=null)
                 bufferedReader.close();
             }
         } catch (IOException e) {

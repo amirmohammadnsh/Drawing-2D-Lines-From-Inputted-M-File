@@ -14,21 +14,24 @@ public class NormalRunnerButton extends JButton {
     private Statements[] statements;
     private PaintPanel paintPanel;
     private Run run;
+    private RunPanel runPanel;
 
-    public NormalRunnerButton(Statements[] statements, PaintPanel paintPanel, Pen pen) {
+
+
+    public NormalRunnerButton(Statements[] statements, PaintPanel paintPanel, Pen pen, RunPanel runPanel) {
         setStatements(statements);
         setPaintPanel(paintPanel);
+        setRunPanel(runPanel);
         setText("Normal Runner");
-addActionListener(new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
+        addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-        initPen(pen);
-
-
-        run = new Run(RunType.NORMAL,getStatements(),getPaintPanel(),pen,null);
-    }
-});
+                initPen(pen);
+                getRunPanel().getProfilerRunnerButton().setEnabled(false);
+                run = new Run(RunType.NORMAL, getStatements(), getPaintPanel(), pen, null);
+            }
+        });
 
 //        addActionListener(new ActionListener() {
 //
@@ -43,9 +46,6 @@ addActionListener(new ActionListener() {
 //        };
 
 //        addActionListener(new NormalButtonActionListener(getStatements(),getPaintPanel(),pen));
-
-
-
 
 
     }
@@ -80,4 +80,11 @@ addActionListener(new ActionListener() {
 
     }
 
+    public RunPanel getRunPanel() {
+        return runPanel;
+    }
+
+    public void setRunPanel(RunPanel runPanel) {
+        this.runPanel = runPanel;
+    }
 }

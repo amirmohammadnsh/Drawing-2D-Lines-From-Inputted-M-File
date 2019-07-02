@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 public class CompileButton extends JButton implements ActionListener {
 
-
     //    private TextPanel textPanel;
     private Parser parser;
     private LoadFilePanel loadFilePanel;
@@ -27,7 +26,7 @@ public class CompileButton extends JButton implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
 //                System.out.println(getTextPanel().getTextContent().getText());
-                getConsoleTextArea().setText(null);
+                getConsoleTextArea().setText(null);         //consoleTextArea will be cleared
                 parser = new Parser(getLoadFilePanel().getLoadFileButton().getFileChooser().getChosenFile(), getConsoleTextArea(),getWestPanel());
             }
         });
