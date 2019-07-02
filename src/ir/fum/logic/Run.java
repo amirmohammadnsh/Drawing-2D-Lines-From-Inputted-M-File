@@ -2,6 +2,8 @@ package ir.fum.logic;
 
 import ir.fum.gui.PaintPanel;
 import ir.fum.gui.TimeFrame;
+import ir.fum.logic.Exceptions.OutOfBoundsFirstArgumrntException;
+import ir.fum.logic.Exceptions.OutOfBoundsSecondArgumrntException;
 import ir.fum.logic.Exceptions.RunTimeMoveException;
 import ir.fum.logic.Statements.*;
 
@@ -13,6 +15,7 @@ public class Run {
     private TimeFrame timeFrame;
     private boolean showTime = true;
     private double totalTime = 0;
+    private int forIndex;
 
 
     public Run(RunType runType, Statements[] statements, PaintPanel paintPanel, Pen pen, TimeFrame timeFrame) {
@@ -100,7 +103,11 @@ public class Run {
 
                 case "Inc":
                     Inc incStatement = (Inc) statement;
+//                    incStatement.setValue(incStatement.getValue()+ incStatement.getValue());
+//                    for(Statements statementInc:statements){
 
+
+//                    }
 
                     break;
 
@@ -128,15 +135,17 @@ public class Run {
 
                 case "For":
                     For forStatement = (For) statement;
+                    forIndex = forStatement.getStatementIndex();
+                    Statements[] statementsOfFor = new Statements[forStatement.getNumberOfNextStatements()];
+                    int index = forStatement.getStatementIndex();
+                    for (int j = 0; j < statementsOfFor.length; j++) {
+                        statementsOfFor[j] = statements[++index];
+                    }
                     for (int i = 0; i < forStatement.getNumberOfRepetition(); i++) {
-                        Statements[] statementsOfFor = new Statements[forStatement.getNumberOfNextStatements()];
-                        int index = forStatement.getStatementIndex();
-                        for (int j = 0; j < statementsOfFor.length; j++) {
 
-                            statementsOfFor[j] = statements[++index];
-
-                        }
+                        updateVariable(statementsOfFor, index);
                         normalPainting(statementsOfFor, pen);
+
                     }
 
                     break;
@@ -220,7 +229,7 @@ public class Run {
 
                     for (int i = 1; i <= length; i++) {
                         if ((stopX > 1000 || stopX < 0) || (stopY > 1000 || stopY < 0)) {
-                            System.out.println("hello");
+//                            System.out.println("hello");
                             throw new RunTimeMoveException((getPaintPanel().getMainFrame()));
 
                         } else {
@@ -330,14 +339,17 @@ public class Run {
                 case "For":
                     For forStatement = (For) statement;
                     showTime = false;
+
+                    int index = forStatement.getStatementIndex();
+
+                    Statements[] statementsOfFor = new Statements[forStatement.getNumberOfNextStatements()];
+                    for (int j = 0; j < statementsOfFor.length; j++) {
+                        statementsOfFor[j] = statements[++index];
+                    }
+
                     for (int i = 0; i < forStatement.getNumberOfRepetition(); i++) {
-                        Statements[] statementsOfFor = new Statements[forStatement.getNumberOfNextStatements()];
-                        int index = forStatement.getStatementIndex();
-                        for (int j = 0; j < statementsOfFor.length; j++) {
 
-                            statementsOfFor[j] = statements[++index];
-
-                        }
+                        updateVariable(statementsOfFor, index);
 //                        for(int k=0; k<statementsOfFor.length;k++){
 //                            System.out.println(statementsOfFor[k].getLineText());
 //                        }
@@ -432,5 +444,55 @@ public class Run {
 
 
     }
+
+
+    private void updateVariable(Statements[] afterForStatements, int forIndex) {
+        for (Statements item : afterForStatements) {
+            if (item instanceof Inc) {
+                Inc incstatement = (Inc) item;
+                for (int i = forIndex - 1; i >= 0; i--) {                 //check previous statements to find a setted variable
+                    if (statements[i] instanceof Set) {
+                        Set setStatement = (Set) statements[i];
+                        if (setStatement.getNameOfVariable().equals(incstatement.getNameOfVariable())) {
+
+                            setStatement.setValue(setStatement.getValue() + incstatement.getValue());
+
+
+//                    return true;
+                        }
+                    }
+                }
+//        return false;
+            } else if (item instanceof Move) {
+                Move movestatement = (Move) item;
+                for (int i = forIndex - 1; i >= 0; i--) {                 //check previous statements to find a setted variable
+                    if (statements[i] instanceof Set) {
+                        Set setStatement = (Set) statements[i];
+                        if (setStatement.getNameOfVariable().equals(movestatement.getRawX())) {
+                            try {
+                                movestatement.setX(setStatement.getValue());
+                            } catch (OutOfBoundsFirstArgumrntException ex) {
+                                RunTimeMoveException runTimeMoveException = new RunTimeMoveException(getPaintPanel().getMainFrame());
+                                runTimeMoveException.showMessage();
+                            }
+                        }
+                        if (setStatement.getNameOfVariable().equals(movestatement.getRawY())) {
+                            try {
+                                movestatement.setY(setStatement.getValue());
+                            } catch (OutOfBoundsSecondArgumrntException ex) {
+                                RunTimeMoveException runTimeMoveException = new RunTimeMoveException(getPaintPanel().getMainFrame());
+                                runTimeMoveException.showMessage();
+                            }
+                        }
+
+
+//                    return true;
+                    }
+                }
+            }
+//        return false;
+        }
+    }
+
 
 }

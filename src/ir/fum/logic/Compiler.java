@@ -96,6 +96,7 @@ public class Compiler {
             if (statements[i] instanceof Set) {
                 Set setStatement = (Set) statements[i];
                 if (setStatement.getNameOfVariable() != null && setStatement.getNameOfVariable().equals(nameOfVariable)) {
+
                     foundVariable = setStatement.getValue();
                     return true;
                 }
