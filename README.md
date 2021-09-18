@@ -1,7 +1,7 @@
 # Drawing-2D-Lines-From-Inputted-M-File
 Advanced Programming Language Course - Final Project
 
-_Scheme Plotter for the Inputted Costume Programming Language File_
+__Scheme Plotter for the Inputted Costume Programming Language File__
 
 In this project, first, we need to write a series of commands in our costume programming language and save them as a .m file. 
 Our designed framework will take this m-file as its input, parses its commands and compiles them.
